@@ -25,7 +25,7 @@ permalink: /donate/
 
 ![star me](/img/star.png)
 
-也可以关注**新浪微博** [weibo.com/abolybook](http://weibo.com/abolybook) 和**微信订阅号** abolybook，告诉更多的人了解和支持它。
+也可以关注**新浪博客** [blog.sina.com.cn/abolybook](http://blog.sina.com.cn/abolybook) 与**微信订阅号** abolybook，告诉更多的人了解和支持它。
 
 非常感谢！:pray:
 {: style="text-align: center"}

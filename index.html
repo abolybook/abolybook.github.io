@@ -4,25 +4,38 @@ layout: default
 
 <div class="home">
 
-<p><a href="https://github.com/abolybook/aboly/releases"><img src="/img/abolycover.png" alt="aboly cover" width="360px" style="display: block; margin: 0px auto"/></a></p>
+<div style="overflow: auto; width: 100%; margin-bottom: 1.5em;">
+<a href="/aboly/" title="《一瓶论语》"><img src="/img/abolycover.png" alt="《一瓶论语》" width="48%" style="display: block; float: left"/></a>
+<a href="/ly/" title="《论语》白文版"><img src="/img/lycover.png" alt="《论语》白文版" width="48%" style="display: block; float: right"/></a>
+</div>
+
+<p style="text-align: center">:star: 2016-6-18，Web版上线啦！<a href="/web-edition/">详情……</a></p>
 
 <p style="text-align: center">
-PDF 电子书下载：<br>
-<a href="https://github.com/abolybook/aboly/releases">github.com/abolybook/aboly/releases</a>
+PDF版下载：<a href="https://github.com/abolybook/aboly/releases" target="_blank">github.com/abolybook/aboly/releases</a>
 </p>
 
 <p style="text-align: center">
-百度网盘备份（国内访问较快）：<br>
-<a href="http://pan.baidu.com/s/1eRp6vMq#path=%252Faboly">pan.baidu.com/s/1eRp6vMq</a>
+百度网盘备份（中国大陆访问较快）：<a href="http://pan.baidu.com/s/1eRp6vMq#path=%252Faboly" target="_blank">pan.baidu.com/s/1eRp6vMq</a>
 </p>
 
 <p style="text-align: center">
-新浪博客：<a href="http://blog.sina.com.cn/abolybook">blog.sina.com.cn/abolybook</a><br>
+新浪博客：<a href="http://blog.sina.com.cn/abolybook" target="_blank">blog.sina.com.cn/abolybook</a><br>
 微信订阅号：abolybook
 </p>
 
-<p style="text-align: center">
-（网站建设中……）
-</p>
+<ul class="post-list">
+{% for post in site.posts %}
+  <li>
+    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+    <h2>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h2>
+  </li>
+{% endfor %}
+</ul>
+
+<p class="rss-subscribe" style="text-align: right"><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS订阅</a></p>
 
 </div>

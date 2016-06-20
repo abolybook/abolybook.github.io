@@ -10,7 +10,7 @@ permalink: /donate
 
 理想情况下，当然是送我一些能够自由支配的**时间**。可惜这是世界难题。:sweat:
 
-次好的情况是**捐钱** :moneybag:。这也等于为这个项目赞助了“有效时间”，假如我还没变得太老的话。
+次好的情况是**捐钱** :moneybag:。这也等于为这个项目赞助了“有效时间”，只要我还没变得太老。
 
 - 支付宝：abolybook@gmail.com（淘宝会员名是 abolybook2，支付时会看到一个“森”字）
 - PayPal：abolybook@gmail.com

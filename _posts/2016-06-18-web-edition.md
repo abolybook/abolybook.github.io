@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Web版上线啦！
-permalink: /web-edition/
+permalink: /web-edition
 ---
 
 排版良好的PDF确实比较有书的气息，对大多数人来说，随时随地就能打开的网页显然更方便吧。
@@ -11,8 +11,8 @@ Web版真是久等了！《一瓶论语》的源代码是LaTeX，直接生成的
 点击[主页](http://www.abolybook.org)的两张封面图片，就分别进入《一瓶论语》和《论语》白文版：
 
 <div style="overflow: auto; width: 100%; margin-bottom: 1.5em;">
-<a href="/aboly/" title="《一瓶论语》"><img src="/img/abolycover.png" alt="《一瓶论语》" width="48%" style="display: block; float: left"/></a>
-<a href="/ly/" title="《论语》白文版"><img src="/img/lycover.png" alt="《论语》白文版" width="48%" style="display: block; float: right"/></a>
+<a href="/aboly" title="《一瓶论语》"><img src="/img/abolycover.png" alt="《一瓶论语》" width="48%" style="display: block; float: left"/></a>
+<a href="/ly" title="《论语》白文版"><img src="/img/lycover.png" alt="《论语》白文版" width="48%" style="display: block; float: right"/></a>
 </div>
 
 （如果你是Windows XP用户，建议安装[Firefox浏览器](http://www.firefox.com.cn/)，用它看得更清爽哦。）
@@ -26,7 +26,7 @@ Web版真是久等了！《一瓶论语》的源代码是LaTeX，直接生成的
 {: .center}
 ![目录](/img/web-edition/navbar.png)
 
-- **留言**，跳转到[留言](/ideas/)区，可以在那里发表评论，参与讨论。
+- **留言**，跳转到[留言](/ideas)区，可以在那里发表评论，参与讨论。
 - **转转**，随机跳到某一章，便于刷新印象。
 - **目录**。
 - **设置**。
@@ -58,7 +58,7 @@ Web版真是久等了！《一瓶论语》的源代码是LaTeX，直接生成的
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "http://www.abolybook.org/web-edition/";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.url = "http://www.abolybook.org/web-edition";  // Replace PAGE_URL with your page's canonical URL variable
         this.page.identifier = "abolybook_web_edition"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() {  // DON'T EDIT BELOW THIS LINE

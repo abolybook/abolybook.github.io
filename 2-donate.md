@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 赞助
-permalink: /donate/
+permalink: /donate
 ---
 
 《一瓶论语》是我在业余时间撰写的，发布为[开源项目](https://github.com/abolybook/aboly)。我特别喜欢这个题材，希望持续维护下去。:sunflower:

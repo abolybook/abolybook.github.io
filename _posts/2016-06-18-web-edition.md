@@ -90,28 +90,28 @@ var disqus_config = function () {
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 <map name="abolycovermap" id="abolycovermap">
-<area shape="circle" coords="308,451,22" href="/aboly.html#topiczheng4" alt="政" title="政">
-<area shape="circle" coords="365,451,18" href="/aboly.html#topiczhong1" alt="忠" title="忠">
-<area shape="circle" coords="164,504,18" href="/aboly.html#topiczhi4a" alt="智" title="智">
-<area shape="circle" coords="361,351,18" href="/aboly.html#topicshu4" alt="恕" title="恕">
-<area shape="circle" coords="187,451,22" href="/aboly.html#topicxue2" alt="学" title="学">
-<area shape="circle" coords="247,390,39" href="/aboly.html#topicjunzi" alt="君子" title="君子">
-<area shape="circle" coords="308,329,22" href="/aboly.html#topicli3" alt="礼" title="礼">
-<area shape="circle" coords="348,491,18" href="/aboly.html#topicyongren" alt="贤" title="贤">
-<area shape="circle" coords="185,329,22" href="/aboly.html#topicren2" alt="仁" title="仁">
-<area shape="circle" coords="330,276,18" href="/aboly.html#topicqian1" alt="谦" title="谦">
-<area shape="circle" coords="145,369,18" href="/aboly.html#topiczhi4" alt="志" title="志">
-<area shape="circle" coords="133,472,18" href="/aboly.html#topicyi4a" alt="艺" title="艺">
-<area shape="circle" coords="348,410,18" href="/aboly.html#topicde2" alt="德" title="德">
-<area shape="circle" coords="308,508,18" href="/aboly.html#topichui4" alt="惠" title="惠">
-<area shape="circle" coords="186,272,18" href="/aboly.html#topicyi4" alt="义" title="义">
-<area shape="circle" coords="128,329,18" href="/aboly.html#topicyou3" alt="友" title="友">
-<area shape="circle" coords="227,288,18" href="/aboly.html#topicxiao4" alt="孝" title="孝">
-<area shape="circle" coords="267,491,18" href="/aboly.html#topiclian2" alt="廉" title="廉">
-<area shape="circle" coords="286,276,18" href="/aboly.html#topicjing4" alt="敬" title="敬">
-<area shape="circle" coords="133,429,18" href="/aboly.html#topicwen2" alt="文" title="文">
-<area shape="circle" coords="145,288,18" href="/aboly.html#topicxin4" alt="信" title="信">
-<area shape="circle" coords="208,504,18" href="/aboly.html#topicheng2" alt="恒" title="恒">
-<area shape="circle" coords="360,307,18" href="/aboly.html#topicwen1" alt="温" title="温">
-<area shape="default" href="/aboly.html" alt="《一瓶论语》" title="《一瓶论语》">
+<area shape="circle" coords="308,451,22" href="/aboly#topiczheng4" alt="政" title="政">
+<area shape="circle" coords="365,451,18" href="/aboly#topiczhong1" alt="忠" title="忠">
+<area shape="circle" coords="164,504,18" href="/aboly#topiczhi4a" alt="智" title="智">
+<area shape="circle" coords="361,351,18" href="/aboly#topicshu4" alt="恕" title="恕">
+<area shape="circle" coords="187,451,22" href="/aboly#topicxue2" alt="学" title="学">
+<area shape="circle" coords="247,390,39" href="/aboly#topicjunzi" alt="君子" title="君子">
+<area shape="circle" coords="308,329,22" href="/aboly#topicli3" alt="礼" title="礼">
+<area shape="circle" coords="348,491,18" href="/aboly#topicyongren" alt="贤" title="贤">
+<area shape="circle" coords="185,329,22" href="/aboly#topicren2" alt="仁" title="仁">
+<area shape="circle" coords="330,276,18" href="/aboly#topicqian1" alt="谦" title="谦">
+<area shape="circle" coords="145,369,18" href="/aboly#topiczhi4" alt="志" title="志">
+<area shape="circle" coords="133,472,18" href="/aboly#topicyi4a" alt="艺" title="艺">
+<area shape="circle" coords="348,410,18" href="/aboly#topicde2" alt="德" title="德">
+<area shape="circle" coords="308,508,18" href="/aboly#topichui4" alt="惠" title="惠">
+<area shape="circle" coords="186,272,18" href="/aboly#topicyi4" alt="义" title="义">
+<area shape="circle" coords="128,329,18" href="/aboly#topicyou3" alt="友" title="友">
+<area shape="circle" coords="227,288,18" href="/aboly#topicxiao4" alt="孝" title="孝">
+<area shape="circle" coords="267,491,18" href="/aboly#topiclian2" alt="廉" title="廉">
+<area shape="circle" coords="286,276,18" href="/aboly#topicjing4" alt="敬" title="敬">
+<area shape="circle" coords="133,429,18" href="/aboly#topicwen2" alt="文" title="文">
+<area shape="circle" coords="145,288,18" href="/aboly#topicxin4" alt="信" title="信">
+<area shape="circle" coords="208,504,18" href="/aboly#topicheng2" alt="恒" title="恒">
+<area shape="circle" coords="360,307,18" href="/aboly#topicwen1" alt="温" title="温">
+<area shape="default" href="/aboly" alt="《一瓶论语》" title="《一瓶论语》">
 </map>

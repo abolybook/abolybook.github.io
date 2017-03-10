@@ -6,7 +6,7 @@ permalink: /web-edition
 
 排版良好的PDF比较有书的气息，可对大多数人来说，随时随地就能打开的网页显然更方便吧。
 
-Web版真是久等了！《一瓶论语》的源代码是LaTeX，直接生成的是[PDF](https://github.com/abolybook/aboly/releases)电子书。Web版是从LaTeX自动转换来的，除了载体不同而作的一点点处理以外，它和PDF版的内容完全一致，并会保持同步更新。
+Web版真是久等了！《一瓶论语》的源代码是LaTeX，直接生成的是[PDF](https://github.com/abolybook/aboly/releases)电子书。Web版是从LaTeX自动转换来的，除了载体不同的必要处理以外，它和PDF版的内容基本一致，只是更新得频繁一点。
 
 点击[主页](http://www.abolybook.org)的两张封面图片，就分别进入《一瓶论语》和《论语》白文版：
 

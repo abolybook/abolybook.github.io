@@ -113,9 +113,18 @@ div.lyquotepara {
     padding-right: 1em;
 }
 
+div.lyquotepoemwrap,
+div.lyquotepoemewrap {
+    text-align: center;
+}
+
 div.lyquotepoem,
 div.lyquotepoeme {
-    text-align: center;
+    display: inline-block;
+    text-align: left;
+    /* IE 7- */
+    *display: inline;
+    zoom: 1.0;
 }
 
 a:link {
@@ -2545,12 +2554,14 @@ img.characterimg {
 <li>
 <p>
 <a id="guanju"></a><span class="lyterm">《关雎》</span>（<span class="lypinyin">jū</span>）：出自《<a href="#shijing">诗经</a>&middot;<a href="#zhounan">周南</a>》，它是《诗经》的第一首，写男子思慕追求女子的情诗。</p>
+<div class="lyquotepoemwrap">
 <div class="lyquotepoem">
 <p>关关雎鸠，在河之洲。窈窕淑女，君子好逑。</p>
 <p>参差荇菜，左右流之。窈窕淑女，寤寐求之。</p>
 <p>求之不得，寤寐思服。悠哉悠哉，辗转反侧。</p>
 <p>参差荇菜，左右采之。窈窕淑女，琴瑟友之。</p>
 <p>参差荇菜，左右芼之。窈窕淑女，钟鼓乐之。</p>
+</div>
 </div>
 <p>（关关：鸟鸣应和声。雎鸠：一种捕鱼为食的水鸟，朱熹《诗集传》说它们<span class="lyq">生有定偶而不相乱，偶常并游而相<a href="#xia2">狎</a>。</span>洲：水中陆地。窈窕（<span class="lypinyin">yǎo tiǎo</span>）：形容女子娴静美好。西汉扬雄《方言》说：<span class="lyq">秦、晋之间，美心为窈，美状为窕。</span>二字本义均为洞穴幽深，现代转指体态优美。好逑（<span class="lypinyin">hǎo qi&uacute;</span>）：好的配偶，良匹。荇（<span class="lypinyin">x&igrave;ng</span>）菜：一种可食用水草，叶为对生心形，漂浮水面，茎根细长柔软，沉在水中。流：指顺水采择。<a id="wumei"></a>寤寐（<span class="lypinyin">w&ugrave; m&egrave;i</span>）：醒着和睡着，指没日没夜地。服：思念。辗转反侧：《诗集传》：<span class="lyq">辗者，转之半；转者，辗之周；反者，辗之过；侧者，转之留。皆卧不安席之意。</span>芼（<span class="lypinyin">m&agrave;o</span>）：采择。琴瑟友之是相会共处之乐，钟鼓乐之是憧憬婚庆之乐。）</p>
 </li>
@@ -7032,23 +7043,29 @@ img.characterimg {
 </div>
 <div class="lyblobremark">
 <p>&ldquo;流年似水&rdquo;已成为汉语惯用语。光阴易逝如川流不息的意象，在其它语言中也有体现。如古波斯诗集《鲁拜集》（<em>The Rub&aacute;iy&aacute;t of Omar Khayy&aacute;m</em>，1100年前后）第29首，Edward Fitzgerald英译：</p>
+<div class="lyquotepoemewrap">
 <div class="lyquotepoeme">
 <p>Into this Universe, and <em>Why</em> not knowing</p>
 <p>Nor <em>Whence</em>, like Water willy-nilly flowing;</p>
 <p>And out of it, as Wind along the Waste,</p>
 <p>I know not <em>Whither</em>, willy-nilly blowing.</p>
 </div>
+</div>
 <p>黄杲炘（<span class="lypinyin">gǎo xīn</span>）中译：</p>
+<div class="lyquotepoemwrap">
 <div class="lyquotepoem">
 <p>不知什么是<em>根由</em>、哪里是<em>源头</em>，</p>
 <p>就像是流水，无奈地流进宇宙；</p>
 <p>不知哪里是<em>尽头</em>、也不再勾留，</p>
 <p>我像是风儿，无奈地吹过沙丘。</p>
 </div>
+</div>
 <p>金庸中译（引自《倚天屠龙记》第30回）：</p>
+<div class="lyquotepoemwrap">
 <div class="lyquotepoem">
 <p>来如流水兮逝如风，</p>
 <p>不知何处来兮何所终！</p>
+</div>
 </div>
 <p>英语习语water under the bridge（桥下之水）指已往之事不受控制也无法追回，只好接受、原谅或遗忘。如二战电影《卡萨布兰卡》（<em>Casablanca</em>）中，女主角Ilsa曾与男主角Rick在巴黎相恋却又不辞而别，一年后偶入Rick的酒店，见到了熟识的男仆Sam：</p>
 <div class="lyquotepara">
@@ -7351,7 +7368,7 @@ img.characterimg {
 <a id="er2"></a><span class="lyterm">而</span>：无意义的句末助词，又可以表示感叹。<span class="lyexample"><span>【例】</span><span><a href="#18.5" class="lyref">18.5</a> <span class="lyq">已而，已而，今之从政者殆而！</span></span></span>
 </p>
 <p>
-<span class="lyterm">偏其反而</span>：喻指（本应欢聚却）相远离。<span class="lyseealso"><span>【参】</span><span>《诗经&middot;小雅&middot;角弓》讲兄弟亲情：<span class="lyq">骍骍角弓，翩其反矣。兄弟昏姻，无胥远矣。</span>（骍骍：形容弓已调得便利顺手。翩其反矣：指张弓放箭时角弓两端由近而远。昏姻：指亲戚。胥：相互。）由此看来，把本章的4句诗理解为思念兄弟，由实指上升到思贤、思仁，也说得通。</span></span>
+<span class="lyterm">偏其反而</span>：喻指（本应欢聚却）相远离。<span class="lyseealso"><span>【参】</span><span>《诗经&middot;小雅&middot;角弓》讲兄弟亲情：<span class="lyq">骍骍角弓，翩其反矣。兄弟昏姻，无胥远矣。</span>（骍骍：形容弓已调理得灵便称手。翩其反矣：指张弓放箭时角弓两端由近而远。昏姻：指亲戚。胥：相互。）由此看来，把本章的4句诗理解为思念兄弟，由实指上升到思贤、思仁，也说得通。</span></span>
 </p>
 <p>
 <span class="lyterm">是</span>：副词，用在单音节形容词谓语之前，强化了形容的效果，相当于如此，这样，so，this。<span class="lyexample"><span>【例】</span><span><a href="#20.1" class="lyref">20.1</a> <span class="lyq">周有大赉，善人是富。</span>《诗经&middot;小雅&middot;南山有台》：<span class="lyq">乐只君子，德音是茂。</span>（<a id="zhi1a"></a>只：语气词，相当于呀，呵。德音：善言。）</span></span>

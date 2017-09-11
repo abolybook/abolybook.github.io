@@ -15,5 +15,5 @@ github_project: aboly
 # Build settings
 markdown: kramdown
 
-gems:
+plugins:
   - jemoji

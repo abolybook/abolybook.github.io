@@ -30,7 +30,7 @@ permalink: /ly-tts-announcement
 
 让人开心的是，只要不太多的辅助，Google TTS就能把2500年前的文言文读得像模像样。请试听一下今天发布的第一个版本：
 
-<audio src="https://github.com/abolybook/ly-tts/releases/download/v0.3.0/ly-tts.mp3" controls="controls">
+<audio src="https://github.com/abolybook/ly-tts/releases/download/v0.3.0a/ly-tts.mp3" controls="controls">
 哎呀，你的浏览器不支持直接播放MP3，请试一下最新版的Chrome或者Firefox浏览器吧。
 </audio>
 

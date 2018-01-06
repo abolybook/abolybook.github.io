@@ -28,10 +28,10 @@ permalink: /ly-tts-announcement
 
 “TTS”是“Text to Speech”的缩写，它通过软件自动把文字内容“合成”为语音信号，直接“读”出声音或者保存成音频文件。2个多月前，我偶然被自己安卓手机上“Google文字转语音引擎”朗读中文网站文章的质量吸引，自然就想到，用它读文言文会怎样呢？有可能流畅自然地朗读《论语》吗？这种人文和一点点技术相结合的题目，总让我兴趣盎然，《论语》TTS有声版就是后来不断试验的一个小结。
 
-让人开心的是，只要不太多的辅助，Google TTS就能把2500年前的文言文读得像模像样。请试听一下今天发布的第一个版本：
+让人开心的是，只要不太多的辅助，Google TTS就能把2500年前的文言文读得像模像样。请试听一下：
 
 <audio src="https://github.com/abolybook/ly-tts/releases/download/v0.3.0a/ly-tts.mp3" controls="controls">
-哎呀，你的浏览器不支持直接播放MP3，请试一下最新版的Chrome或者Firefox浏览器吧。
+哎呀，你的浏览器不支持直接播放MP3，请试试最新版的Chrome或者Firefox浏览器吧。
 </audio>
 
 这里的辅助工作，主要是帮助TTS引擎断句，还有多音字和难字的辨析。然后，就可以把整个的“台词”交给TTS引擎自动处理了。更棒的是，安卓系统开放了[TextToSpeech](https://developer.android.com/reference/android/speech/tts/TextToSpeech.html)开发接口，尽管控制的范围不如我希望的丰富，但也足以按章朗读，统一合并，然后自动生成播放列表和同步字幕了。限于时间，我只用Google TTS做了试验。其它优秀的TTS引擎，比如科大讯飞，相信也会有出色的表现。

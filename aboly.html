@@ -205,15 +205,14 @@ img.characterimg {
     margin-top: 6px;
 }
 
-#navoutline:focus,
-#navoutline:hover,
-#navrandomjump:focus,
-#navrandomjump:hover,
-#navsettings:focus,
-#navsettings:hover {
+#navoutline:focus, #navoutline:hover,
+#navhistory:focus, #navhistory:hover,
+#navrandomjump:focus, #navrandomjump:hover,
+#navsettings:focus, #navsettings:hover {
     color: #5e5e5e;
 }
 
+#clearnavhistory:hover,
 #toggleblobtags:hover,
 #navrandomjump:hover {
     cursor: pointer;
@@ -235,6 +234,10 @@ img.characterimg {
     float: right;
     text-align: center;
     width: 3em;
+}
+
+#historymenu > li {
+    text-align: center;
 }
 
 #print-reminder {
@@ -429,15 +432,15 @@ img.characterimg {
     var showClass = "glyphicon-ok";
     var hideClass = "glyphicon-remove";
 
-    function toggleBlobtags() {
+    function toggleBlobTags() {
         var icon = $('#toggleblobtags > span.glyphicon');
         if (!icon) {
-            console.log("Fail to find icon in toggleBlobtags()");
+            console.log("Fail to find icon in toggleBlobTags()");
             return;
         }
         var shown = icon.hasClass(showClass);
         if (!shown && !icon.hasClass(hideClass)) {
-            console.log("Malformed icon in toggleBlobtags()");
+            console.log("Malformed icon in toggleBlobTags()");
             return;
         }
         icon.removeClass(shown ? showClass : hideClass);
@@ -447,35 +450,88 @@ img.characterimg {
         });
     }
 
+    // Nav-history.
+    var NAV_HISTORY_SIZE = 6;  // including the Clear button
+    var NAV_HISTORY_KEY = "navhistory";
+
+    function updateNavHistory(event) {
+        var clicked = event.target;
+        var blob = $(clicked).closest("div.lyblob");
+        if (blob.length != 1) return;
+
+        var bid = blob.prev("a").attr("id");
+        var item = '<li><a href="#' + bid + '">' + bid + '</a></li>';
+        var menu = $("#historymenu");
+        if ($("li", menu).length == NAV_HISTORY_SIZE) {
+            $("li:nth-child(" + (NAV_HISTORY_SIZE - 1) + ")", menu).remove();
+        }
+        menu.prepend(item);
+
+        if (localStorage) {
+            var bids = $("li > a", menu).map(function() {
+                return $(this).text();
+            }).slice(0, -1).get();
+            localStorage.setItem(NAV_HISTORY_KEY, JSON.stringify(bids));
+        }
+    }
+
+    function populateNavHistoryMenu() {
+        if (localStorage) {
+            var menu = $("#historymenu");
+            var bids = JSON.parse(localStorage.getItem(NAV_HISTORY_KEY));
+            if(bids != null) {
+                $.each(bids.reverse(), function(_, bid) {
+                    var item = '<li><a href="#' + bid + '">' + bid + '</a></li>';
+                    menu.prepend(item);
+                });
+            }
+        }
+    }
+
     // onload.
     $(function() {
-        // Random jump.
+        populateOutlineMenu();
+        populateNavHistoryMenu();
+
+        // Nav history menu.
+        $("#alllyblobs").on("click", "a[href^='#']", updateNavHistory);
+
+        $("#clearnavhistory").click(function() {
+            $("#historymenu > li:not(:last)").remove();
+            if (localStorage) {
+                localStorage.removeItem(NAV_HISTORY_KEY);
+            }
+        });
+
+        // Random jump button.
         $("#navrandomjump").click(randomJump);
 
-        // Outline menu.
-        populateOutlineMenu();
-
         // Settings menu.
-        $("#toggleblobtags").click(toggleBlobtags);
+        $("#toggleblobtags").click(toggleBlobTags);
     });
 })();
 </script>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top lynavbar" role="navigation"><div class="container">
-<div class="navbar-header pull-left"><ul class="nav pull-left"><li class="dropdown pull-left" title="目录">
+<div class="navbar-header pull-left"><ul class="nav pull-left">
+<li class="dropdown pull-left" title="目录">
 <a id="navoutline" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-list-alt"></span></a><ul id="outlinemenu" class="dropdown-menu lyscrollable-menu"></ul>
-</li></ul></div>
+</li>
+<li class="dropdown pull-left" title="跳转历史">
+<a id="navhistory" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-bookmark"></span></a><ul id="historymenu" class="dropdown-menu lyscrollable-menu"><li><a id="clearnavhistory" title="清空"><span class="glyphicon glyphicon-trash"></span></a></li></ul>
+</li>
+</ul></div>
 <div class="navbar-header pull-right"><ul class="nav pull-left">
-<li class="dropdown pull-left" title="转转"><a id="navrandomjump" class="lynavbar-anchor"><span class="glyphicon glyphicon-random"></span></a></li>
+<li class="dropdown pull-left" title="任选一章"><a id="navrandomjump" class="lynavbar-anchor"><span class="glyphicon glyphicon-random"></span></a></li>
 <li class="dropdown pull-right" title="设置">
 <a id="navsettings" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-menu-hamburger"></span></a><ul class="dropdown-menu lyscrollable-menu">
-<li><a id="toggleblobtags"><span class="glyphicon glyphicon-ok"></span> 显示章号</a></li>
+<li><a id="toggleblobtags" title=""><span class="glyphicon glyphicon-ok"></span> 显示章号</a></li>
 <li class="nav-divider">
-<li><a href="http://pan.baidu.com/s/1eRp6vMq" target="_blank"><span class="glyphicon glyphicon-download-alt"></span> PDF版</a></li>
-<li><a href="http://www.abolybook.org" target="_blank"><span class="glyphicon glyphicon-home"></span> 主页</a></li>
-<li><a href="/ideas" target="_blank"><span class="glyphicon glyphicon-comment"></span> 留言</a></li>
-<li><a href="/donate" target="_blank"><span class="glyphicon glyphicon-heart"></span> 赞助</a></li>
+<li><a href="http://pan.baidu.com/s/1eRp6vMq" target="_blank" title=""><span class="glyphicon glyphicon-download-alt"></span> PDF版</a></li>
+<li><a href="http://www.abolybook.org" target="_blank" title=""><span class="glyphicon glyphicon-home"></span> 主页</a></li>
+<li><a href="/ideas" target="_blank" title=""><span class="glyphicon glyphicon-comment"></span> 留言</a></li>
+<li><a href="/donate" target="_blank" title=""><span class="glyphicon glyphicon-heart"></span> 赞助</a></li>
 </ul>
 </li>
 </ul></div>
@@ -485,6 +541,7 @@ img.characterimg {
 <p>感谢阅读《一瓶论语》！</p>
 <p>它的PDF版打印效果更好，更有“书”的感觉，还带有详细的目录，适合放在电脑或手机里阅读，可以从本书网站（http://www.abolybook.org）下载。</p>
 </div>
+<div id="alllyblobs">
 <a id="1"></a><h1 class="lybodychapter">1. 学而</h1>
 <a id="1.1"></a><div class="lyblob">
 <div class="lyblobtag"><a href="ly#1.1">1.1</a></div>
@@ -6211,6 +6268,7 @@ img.characterimg {
 <div class="lyblobannotation">
 <ul class="lyblobitemize"><li><p><span class="lyterm">不知言</span>里的<span class="lyterm">知</span>，是辨别真伪、批判性接受的意思。<span class="lyseealso"><span>【参】</span><span><a href="#16.8" class="lyref">16.8</a> <a href="#8.8" class="lyref">8.8</a> <a href="#5.10" class="lyref">5.10</a> </span></span></p></li></ul>
 <p><span class="lyseealso"><span>【参】</span><span>清代焦循《论语补疏》：<span class="lyq">君子以行道安天下为心，天下之命造于君子。……故己之命听诸天，而天下之命任诸己，是知命也。……第以守穷任运为知命，非孔子所云知命也。</span>（第：仅。）清代刘开《论语补注》：<span class="lyq"><a href="#zisi">子思</a>有言：“百世以<a href="#si4a">俟</a>圣人而不惑，知人也。”然知人必求诸言。太史公曰：“余读孔氏书，想见其为人。”后世欲知夫子之所以圣，舍此书之言语文章将何求哉？记此者其有俟诸百世之思乎？望之深，而忧其不得于言也！我知非无为矣。</span>（子思之语出自《中庸》，司马迁之语出自《史记·孔子世家》。）</span></span></p>
+</div>
 </div>
 </div>
 <a id="characters"></a><h1>人物表</h1>

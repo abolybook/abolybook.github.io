@@ -86,12 +86,9 @@ a:link {
     margin-top: 6px;
 }
 
-#navoutline:focus,
-#navoutline:hover,
-#navrandomjump:focus,
-#navrandomjump:hover,
-#navsettings:focus,
-#navsettings:hover {
+#navoutline:focus, #navoutline:hover,
+#navrandomjump:focus, #navrandomjump:hover,
+#navsettings:focus, #navsettings:hover {
     color: #5e5e5e;
 }
 
@@ -286,15 +283,15 @@ a:link {
     var showClass = "glyphicon-ok";
     var hideClass = "glyphicon-remove";
 
-    function toggleBlobtags() {
+    function toggleBlobTags() {
         var icon = $('#toggleblobtags > span.glyphicon');
         if (!icon) {
-            console.log("Fail to find icon in toggleBlobtags()");
+            console.log("Fail to find icon in toggleBlobTags()");
             return;
         }
         var shown = icon.hasClass(showClass);
         if (!shown && !icon.hasClass(hideClass)) {
-            console.log("Malformed icon in toggleBlobtags()");
+            console.log("Malformed icon in toggleBlobTags()");
             return;
         }
         icon.removeClass(shown ? showClass : hideClass);
@@ -313,7 +310,7 @@ a:link {
         populateOutlineMenu();
 
         // Settings menu.
-        $("#toggleblobtags").click(toggleBlobtags);
+        $("#toggleblobtags").click(toggleBlobTags);
     });
 })();
 </script>
@@ -324,7 +321,7 @@ a:link {
 <a id="navoutline" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-list-alt"></span></a><ul id="outlinemenu" class="dropdown-menu lyscrollable-menu"></ul>
 </li></ul></div>
 <div class="navbar-header pull-right"><ul class="nav pull-left">
-<li class="dropdown pull-left" title="转转"><a id="navrandomjump" class="lynavbar-anchor"><span class="glyphicon glyphicon-random"></span></a></li>
+<li class="dropdown pull-left" title="任选一章"><a id="navrandomjump" class="lynavbar-anchor"><span class="glyphicon glyphicon-random"></span></a></li>
 <li class="dropdown pull-right" title="设置">
 <a id="navsettings" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-menu-hamburger"></span></a><ul class="dropdown-menu lyscrollable-menu">
 <li><a id="toggleblobtags"><span class="glyphicon glyphicon-ok"></span> 显示章号</a></li>

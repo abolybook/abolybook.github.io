@@ -80,7 +80,7 @@ Windows上，我喜欢用[foobar2000](http://www.foobar2000.org/)播放音频。
 {: .center}
 ![foobar2000](/img/ly-tts-announcement/windows_foobar2000.png)
 
-foobar2000目前严格遵循“最多99首歌”的播放列表规则，所以没法打开精确到章、总共“532首歌”的ly-tts-detailed.cue。如果用[PotPlayer](https://potplayer.daum.net/)，就没有这个限制，而且它既可以用ly-tts.lrc，也可以用ly-tts.srt当字幕，全屏观看的效果是很好的：
+foobar2000目前严格遵循“最多99首歌”的播放列表规则，所以没法打开精确到章、总共“532首歌”的ly-tts-detailed.cue。【2018-2-4更新：从v1.4 beta2起，foobar2000将cue播放列表的曲数上限提高到999。】如果用[PotPlayer](https://potplayer.daum.net/)，就没有这个限制，而且它既可以用ly-tts.lrc，也可以用ly-tts.srt当字幕，全屏观看的效果是很好的：
 
 {: .center}
 ![foobar2000](/img/ly-tts-announcement/windows_potplayer.png)

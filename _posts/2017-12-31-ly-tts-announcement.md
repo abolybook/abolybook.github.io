@@ -30,7 +30,7 @@ permalink: /ly-tts-announcement
 
 让人开心的是，只要不太多的辅助，Google TTS就能把2500年前的文言文读得像模像样。请试听一下：
 
-<audio src="https://github.com/abolybook/ly-tts/releases/download/v0.3.0b/ly-tts.mp3" controls="controls">
+<audio src="https://github.com/abolybook/ly-tts/releases/download/v0.3.0d/ly-tts.mp3" controls="controls">
 哎呀，你的浏览器不支持直接播放MP3，请试试最新版的Chrome或者Firefox浏览器吧。
 </audio>
 
@@ -288,3 +288,6 @@ foobar2000目前严格遵循“最多99首歌”的播放列表规则，所以�
 - 徼：焦
 - 一：衣，宜，意
 - 为：唯（do, be, fake, by, end-of-sentence aux.），谓（for, because, help）
+- 有：又
+- 杀：晒
+

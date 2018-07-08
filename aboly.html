@@ -451,18 +451,20 @@ img.characterimg {
         });
     }
 
-    // Nav-history.
+    // Nav-history (for blobs only).
     var NAV_HISTORY_SIZE = 6;  // including the Clear button
     var NAV_HISTORY_KEY = "navhistory";
 
     function updateNavHistory(event) {
         var clicked = event.target;
         var blob = $(clicked).closest("div.lyblob");
-        if (blob.length != 1) return;
+        if (blob.length != 1) return;  // not from a blob
 
         var bid = blob.prev("a").attr("id");
         var item = '<li><a href="#' + bid + '">' + bid + '</a></li>';
         var menu = $("#historymenu");
+        var latest = $('li', menu)[0];
+        if (item == '<li>' + latest.innerHTML + '</li>') return;  // duplicate
         if ($("li", menu).length == NAV_HISTORY_SIZE) {
             $("li:nth-child(" + (NAV_HISTORY_SIZE - 1) + ")", menu).remove();
         }
@@ -569,7 +571,7 @@ img.characterimg {
 <p>这句话讲全了是：人不知我，而我不愠。文言文中，尤其是较古的篇章，常会省略、变换主语或宾语，需要读者根据上下文自行补全。适应性练习：<a href="#2.9" class="lyref">2.9</a> <a href="#6.5" class="lyref">6.5</a> <a href="#10.3" class="lyref">10.3</a> <a href="#13.1" class="lyref">13.1</a> </p>
 </li>
 <li>
-<p><a id="junzi"></a><span class="lyterm">君子</span>：道德高尚才能出众的人，与“小人”相对。在古汉语中，这两个词含有强烈的褒贬，成为善与恶、受尊崇与被唾弃的通用代称，类似于现代口语的好人、坏蛋。孔子所认可的君子，具有丰富的内涵，需要通过后文不断加深理解。这里是说，“人不知而不愠”属于君子之风，而非等同于君子，可以参考后面<a href="#ren2">仁</a>的解释。<span class="lyseealso"><span>【参】</span><span><a href="#15.18" class="lyref">15.18</a> 。《礼记·曲礼上》：<span class="lyq">博闻强<a href="#zhi4c">识</a>而让，敦善行而不怠，谓之君子。</span>（敦：勤勉。）</span></span></p>
+<p><a id="junzi"></a><span class="lyterm">君子</span>：道德高尚的人，与“小人”相对。在古汉语中，这两个词含有强烈的褒贬，成为善与恶、受尊崇与被唾弃的通用代称，类似于现代口语的好人、坏蛋。孔子所认可的君子，具有丰富的内涵，需要通过后文不断加深理解。这里是说，“人不知而不愠”属于君子之风，而非等同于君子，可以对照后面<a href="#ren2">仁</a>的解释。<span class="lyseealso"><span>【参】</span><span><a href="#15.18" class="lyref">15.18</a> 。与<a href="#xian2">贤人</a>相比，君子不太强调才能出众，但也应当孜孜进修。《礼记·曲礼上》：<span class="lyq">博闻强<a href="#zhi4c">识</a>而让，敦善行而不怠，谓之君子。</span>（敦：勤勉。）</span></span></p>
 <p><a id="daren"></a>“君子”最早见于《<a href="#shangshu">尚书</a>》的《虞夏书·大禹谟》（伪）、《周书·酒诰》等篇，用来称呼<a href="#qingdafushi">大夫</a>及以上的贵族官员，暗含对他们地位高、入<a href="#wenhuaxiayi">官学</a>、有文化的赞美。字面上看，“<a href="#jun1">君</a>之子”出身高贵，天生是要成为人上人的。后来，君子就成为有官职或地位高者的通称，相当于古装剧里的大人、老爷、贵人。相对的也叫小人，或称<a href="#yeren">野人</a>，也就是<a href="#shu4b">庶民</a>，平民百姓。这个用法并没有品性上的褒贬，只表达阶层高低、地位主从的实际情况。不少古画，比如明代的<a href="http://www.yupoo.com/photos/bluebeard/53885864/" class="lyurl" target="_blank">江舜夫官服图</a>，常会把仆从画得不成比例的小，从中可以体会君子、小人的这种含义。<span class="lyexample"><span>【例】</span><span><a href="#4.11" class="lyref">4.11</a> <span class="lyq">君子怀德，小人怀土。</span>《<a href="#shijing">诗经</a>·魏风·伐檀》：<span class="lyq">彼君子兮，不素餐兮！</span></span></span><span class="lyseealso"><span>【参】</span><span>清代刘宝楠《论语正义》：<span class="lyq">非有位而称君子者，以其人有道德，可任在位也。</span></span></span></p>
 <p><a id="junzizhilu"></a>不凭出身高低而论道德品行，是孔子那个时代赋予“君子”的新内涵。孔子创建的<a href="#wenhuaxiayi">私学</a>，开辟了平民通往君子之路。说、乐与君子并列，也说明<a href="#sidao">斯道</a>并不遥远乏味。</p>
 </li>
@@ -713,7 +715,8 @@ img.characterimg {
 <div class="lyblobannotation"><ul class="lyblobitemize">
 <li>
 <p><a id="xianxianyise"></a><span class="lyterm">贤贤易色</span>：重贤轻色。第一个<span class="lyterm">贤</span>是动词，以……为贤，尊崇，重视，value，honor；第二个是名词，德行才能，virtue。<span class="lyexample"><span>【例】</span><span><a href="#11.16" class="lyref">11.16</a> <span class="lyq">师与商也孰贤？</span><a href="#6.11" class="lyref">6.11</a> <span class="lyq">贤哉回也！</span>《三国志·魏书·武文世王公》裴松之注引魏宗室曹冏（<span class="lypinyin">jiǒng</span>）上书：<span class="lyq">古之王者，必建同<a href="#xingshi">姓</a>以明亲亲，必树异姓以明贤贤。……非贤无与兴功，非亲无与辅治。</span>（建：指分封。）《史记·梁孝王世家》：<span class="lyq"><a href="#shangchao">殷</a>道尊尊，<a href="#zhouchao">周</a>道<a href="#qinqin">亲亲</a>。</span></span></span></p>
-<p><a id="xian2"></a>“贤”字从贝，本义为财富多，又泛指好。用于比较，表示胜（过），优（于）。用于人，表示才能佳，德行优。东汉许慎的《说文解字》就解释为<span class="lyq">多才也</span>。《三国志·魏书·武帝纪》载，建安十五年（210年）春，曹操颁布《求贤令》，明言天下未定，<span class="lyq">唯才是举</span>，不论出身与品行。在《论语》中，仅凭才能出众，是称不起“贤人”的，随着儒学主流地位的确立，<a href="#de2">德</a>成为贤的必要部分。《孟子·公孙丑上》推崇<span class="lyq">贤者在位，能者在职</span>；南朝编著的《玉篇》将贤解释为<span class="lyq">有善行也</span>；《宋史·叶梦得传》引叶梦得言：<span class="lyq">贤者，有德之称；能者，有才之称。故<a href="#xianwang">先王</a>常使德胜才，不使才胜德。</span>近代选拔干部，过多注重思想可靠，忽视业务能力，也许是这个古老理念的流弊。中国中央电视台2002年7月的《<a href="http://v.youku.com/v_show/id_XNjEwNDI3NzI" class="lyurl" target="_blank">对话</a>》节目中，陈章良（时任北京大学副校长）与李开复（时任微软公司全球副总裁）作为人才的供需两方，讨论了人才的首选标准、人品应该谁负责等话题，可以作为评价“贤”的现代版参考。阅读后文时，还可以留意贤与<a href="#ren2">仁</a>的区别。</p>
+<p><a id="xian2"></a>“贤”字从贝，本义为财富多，又泛指好。用于比较，表示胜（过），优（于）。用于人，表示才能佳，德行优。东汉许慎的《说文解字》就解释为<span class="lyq">多才也</span>。《三国志·魏书·武帝纪》载，建安十五年（210年）春，曹操颁布《求贤令》，明言天下未定，<span class="lyq">唯才是举</span>，不论出身与品行。但在《论语》中，仅凭才能出众，是称不起“贤人”的，随着儒学主流地位的确立，<a href="#de2">德</a>成为贤的必要部分。《孟子·公孙丑上》推崇<span class="lyq">贤者在位，能者在职</span>；南朝编著的《玉篇》将贤解释为<span class="lyq">有善行也</span>；《宋史·叶梦得传》引叶梦得言：<span class="lyq">贤者，有德之称；能者，有才之称。故<a href="#xianwang">先王</a>常使德胜才，不使才胜德。</span>《大戴礼记·哀公问五义》中，贤人被排在<a href="#junzi">君子</a>之前、<a href="#sheng4">圣人</a>之后。近代选拔干部，过多注重思想可靠，忽视业务能力，也许是这个古老理念的流弊。</p>
+<p>中国中央电视台2002年7月的《<a href="http://v.youku.com/v_show/id_XNjEwNDI3NzI" class="lyurl" target="_blank">对话</a>》节目中，陈章良（时任北京大学副校长）与李开复（时任微软公司全球副总裁）作为人才的供需两方，讨论了人才的首选标准、人品应该谁负责等话题，可以作为评价“贤”的现代版参考。阅读后文时，还可以留意贤与<a href="#ren2">仁</a>的区别。</p>
 <p><a id="yi4g"></a><span class="lyterm">易</span>：动词，轻视。<span class="lyexample"><span>【例】</span><span>《史记·高祖本纪》：<span class="lyq">高祖为亭长，素易诸吏。</span></span></span><span class="lyterm">色</span>：美貌。</p>
 <p>古注有把“易色”解释成端肃态度，或者把“贤贤易色”解释成以好色之心重贤，“易”就是替换，也讲得通，但从内容顺序看，说的更像是择偶标准。</p>
 </li>
@@ -1008,7 +1011,7 @@ img.characterimg {
 </li>
 <li>
 <p><span class="lyterm">所<a href="#yi3">以</a></span>：使用的方法、工具。这是具体可见的。</p>
-<p><span class="lyterm">所由</span>：经由的途径、策略。它比“所以”丰富抽象，需要观察思考才能理解。</p>
+<p><a id="suoyou"></a><span class="lyterm">所由</span>：经由的途径、策略。它比“所以”丰富抽象，需要观察思考才能理解。</p>
 <p><a id="an1a"></a><span class="lyterm">安</span>：安定，心理上达到宁静平和的满足。<span class="lyseealso"><span>【参】</span><span>《四书集注》：<span class="lyq">所由虽善而心之所乐不在于是，则亦伪耳，岂能久而不变哉？</span></span></span></p>
 </li>
 <li>
@@ -1032,8 +1035,11 @@ img.characterimg {
 <div class="lyblobtag"><a href="ly#2.13">2.13</a></div>
 <div class="lybloboriginaltext"><p><a href="#zigong">子贡</a>问君子，子曰：“先行其言而后从之。”</p></div>
 <div class="lyblobannotation">
-<ul class="lyblobitemize"><li><p><span class="lyterm">先行其言而后从之</span>：先行后言，做了再说。<span class="lyterm">之</span>：指代“其言”。<span class="lyterm">从</span>：使跟随，而不是更常见的<a href="#conggensui">跟随</a>。<span class="lyexample"><span>【例】</span><span>《史记·项羽本纪》：<span class="lyq">沛公旦日从百余骑来见项王。</span></span></span><span class="lyseealso"><span>【参】</span><span>南北朝傅昭《处世悬镜·信之卷》：<span class="lyq">践行其言而人不信者有矣，未有不践言而人信之者。</span></span></span></p></li></ul>
-<p>子贡以口才见长，后文<a href="#12.4">司马牛</a>、<a href="#14.42">子路</a>也曾问君子，孔子的回答各有偏重。</p>
+<ul class="lyblobitemize"><li>
+<p><span class="lyterm">先行其言而后从之</span>：先行后言，做了再说。<span class="lyterm">之</span>：指代“其言”。<span class="lyterm">从</span>：使跟随，而不是更常见的<a href="#conggensui">跟随</a>。<span class="lyexample"><span>【例】</span><span>《史记·项羽本纪》：<span class="lyq">沛公旦日从百余骑来见项王。</span></span></span><span class="lyseealso"><span>【参】</span><span>南北朝傅昭《处世悬镜·信之卷》：<span class="lyq">践行其言而人不信者有矣，未有不践言而人信之者。</span></span></span></p>
+<p>也有断句为“先行，其言而后从之”，理解上倒很方便，但“而后”的用法更像是现代汉语了。</p>
+</li></ul>
+<p>子贡以口才见长，后面司马牛、子路也问君子 <a href="#12.4" class="lyref">12.4</a> <a href="#14.42" class="lyref">14.42</a> ，孔子的回答各有偏重。</p>
 </div>
 </div>
 <a id="2.14"></a><div class="lyblob">
@@ -1057,9 +1063,9 @@ img.characterimg {
 <div class="lybloboriginaltext"><p>子曰：“攻乎异端，斯害也已。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
 <li>
-<p><span class="lyterm">攻乎异端</span>：费心劳神于杂学。<span class="lyterm">攻</span>：治，专心从事。<span class="lyexample"><span>【例】</span><span>《诗经·大雅·灵台》：<span class="lyq">经始灵台，经之营之。庶民攻之，不日成之。</span></span></span><span class="lyseealso"><span>【参】</span><span><a href="#13.4" class="lyref">13.4</a> </span></span></p>
+<p><span class="lyterm">攻乎异端</span>：费心劳神于杂学。<span class="lyterm">攻</span>：治，专心从事。<span class="lyexample"><span>【例】</span><span>《诗经·大雅·灵台》：<span class="lyq">经始灵台，经之营之。庶民攻之，不日成之。</span></span></span></p>
 <p>也有认为“攻”表示言辞上的攻击，批判，依据是《论语》中的另外两例：<a href="#11.17" class="lyref">11.17</a> <span class="lyq">鸣鼓而攻之</span>，<a href="#12.21" class="lyref">12.21</a> <span class="lyq">攻其恶，无攻人之恶</span>，都是这个意思。尊重和包容异议，的确契合现代精神，但当时私学方起，百家待兴，未必有争鸣的条件，前一个解释更符合《论语》的整体观念。</p>
-<p><span class="lyterm">异端</span>：跟自己不是一头儿的，从孔子的角度，也就是与仁礼大道的宗旨不同的小道、杂学。孔子并不反对娱乐爱好，而是要珍惜光阴，分清主次。<span class="lyseealso"><span>【参】</span><span><a href="#15.20" class="lyref">15.20</a> <a href="#17.22" class="lyref">17.22</a> <a href="#19.4" class="lyref">19.4</a> </span></span></p>
+<p><span class="lyterm">异端</span>：跟自己不是一头儿的，从孔子的角度，也就是与仁礼大道的宗旨不同的小道、杂学。孔子并不反对娱乐爱好：<a href="#17.22" class="lyref">17.22</a> <span class="lyq">不有博弈者乎？为之犹贤乎已。</span>而是希望珍惜光阴，分清主次：<a href="#15.20" class="lyref">15.20</a> <span class="lyq">君子疾没世而名不称焉。</span><a href="#19.4" class="lyref">19.4</a> <span class="lyq">致远恐泥，是以君子不为也。</span></p>
 <p>也许是受“攻”的影响，这个词后来有了强烈的对抗性，相当于歪门邪道。称别人为异端的，常隐含认为自己才算正统、真理。</p>
 </li>
 <li>
@@ -1409,7 +1415,7 @@ img.characterimg {
 <div class="lyblobtag"><a href="ly#3.16">3.16</a></div>
 <div class="lybloboriginaltext"><p>子曰：“射不主皮，为力不同科，古之道也。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
-<li><p><span class="lyterm">射不主皮</span>：指<a href="#sheli">射礼</a>不以贯穿箭靶的皮革为目的，射中就好。主皮是习战之射，不主皮则是演礼之射。<span class="lyseealso"><span>【参】</span><span>《礼记·射义》：<span class="lyq">故射者，进退周还必<a href="#zhong4">中</a>礼。内志正，外体直，然后持弓矢审固；持弓矢审固，然后可以言中。此可以观德行矣。</span>（审：固定，安定。）</span></span></p></li>
+<li><p><span class="lyterm">射不<a href="#zhu3">主</a>皮</span>：指<a href="#sheli">射礼</a>不以贯穿箭靶的皮革为目的，射中就好。主皮是习战之射，不主皮则是演礼之射。<span class="lyseealso"><span>【参】</span><span>《礼记·射义》：<span class="lyq">故射者，进退周还必<a href="#zhong4">中</a>礼。内志正，外体直，然后持弓矢审固；持弓矢审固，然后可以言中。此可以观德行矣。</span>（审：固定，安定。）</span></span></p></li>
 <li><p><span class="lyterm">科</span>：等级，level。</p></li>
 <li><p><a id="guzhidao"></a><span class="lyterm">古</span>：古代。孔子心中所称许的“古”，泛一点是指夏、商、西周<a href="#sandai">三代</a>，专一点是指鼎盛时期的西周，<a href="#wu">武王</a>、<a href="#zhougong">周公</a>秉政，礼乐毕备<a href="#meishan">尽善尽美</a>的西周，它是孔子的理想寄托，就好像古希腊传说中人类的黄金时代（Golden Age）。与其将“古”视为无法企及的旧日荣光，不如理解成《礼记·<a href="#lijiliyun">礼运</a>》描述的天下为公、人尽其才的大同社会，处处洋溢着充实安乐的气氛。尽管孔子本人的政治实践不算成功，他勾勒的理想蓝图仍是后人的宝贵财富。</p></li>
 </ul></div>
@@ -1637,7 +1643,10 @@ img.characterimg {
 <p>有具体所指时，意义较广，《论语》中涉及的有：</p>
 <ul>
 <li><p> 读书人，知识分子。官职并非士的必要条件，但按儒家传统观念，是应当积极从政的。<a href="#19.13" class="lyref">19.13</a> <span class="lyq">学而优则仕</span>，主语很自然地就是士。向学之士与在位之<a href="#qingdafushi">士</a>的区别，类似于双重含义的<a href="#junzi">君子</a>。古代不同职业的地位及影响力差别很大，现代的选择面就宽得多了。</p></li>
-<li><p> 引申指理想化的士。这两个意义在《论语》中互有融合，就像现代汉语的男人、英语的man，既可以不带感情色彩地指男性成员，也可以根据上下文环境指真男儿、好汉子。<span class="lyexample"><span>【例】</span><span><a href="#8.7" class="lyref">8.7</a> <span class="lyq">士不可以不弘毅。</span><a href="#14.2" class="lyref">14.2</a> <span class="lyq">士而怀居，不足以为士矣。</span>1962年Bob Dylan的民歌金曲<em>Blowin' in the Wind</em>开头是：<span class="lyqe">How many roads must a man walk down, before you call him a man?</span></span></span></p></li>
+<li>
+<p> 理想化的士，侧重于有志气、有骨气。<span class="lyseealso"><span>【参】</span><span>《大戴礼记·哀公问五义》中，士的位序高于庸人而次于<a href="#junzi">君子</a>，并借孔子之口说：<span class="lyq">所谓士者，虽不能尽道术，必有<a href="#suoyou">所由</a>焉；虽不能尽善尽美，必有所处焉。是故知不务多，而务<a href="#shen3">审</a>其所知；行不务多，而务审其所由；言不务多，而务审其所谓。</span></span></span></p>
+<p>这两个意义互有融合，就像现代汉语的男人、英语的man，既可以不带感情色彩地指男性成员，也可以根据上下文环境指真男儿、好汉子。<span class="lyexample"><span>【例】</span><span><a href="#8.7" class="lyref">8.7</a> <span class="lyq">士不可以不弘毅。</span><a href="#14.2" class="lyref">14.2</a> <span class="lyq">士而怀居，不足以为士矣。</span>1962年Bob Dylan的民歌金曲<em>Blowin' in the Wind</em>开头是：<span class="lyqe">How many roads must a man walk down, before you call him a man?</span></span></span></p>
+</li>
 </ul>
 <p>此外，士还是最低级别的<a href="#qingdafushi">贵族阶层</a>，也泛指有官职者。到了战国，养士之风盛行，则是偏重于实用的一技之长。</p>
 </li>
@@ -2231,7 +2240,7 @@ img.characterimg {
 <p><a href="#ranqiu">冉求</a>曰：“非不说子之道，力不足也。”</p>
 <p>子曰：“力不足者，中道而废，今女画。”</p>
 </div>
-<div class="lyblobannotation"><ul class="lyblobitemize"><li><p><span class="lyterm">画</span>：本义为划分田界（这个意思后来写作“划”），引申为停止努力，不再向前进步。可以比较成语“故步自封”的“封”。<span class="lyseealso"><span>【参】</span><span><a href="#4.6" class="lyref">4.6</a> </span></span></p></li></ul></div>
+<div class="lyblobannotation"><ul class="lyblobitemize"><li><p><span class="lyterm">画</span>：本义为划分田界（这个意思后来写作“划”），引申为停止努力，不再向前进步。可以比较成语“故步自封”的“封”。<span class="lyseealso"><span>【参】</span><span><a href="#4.6" class="lyref">4.6</a> <span class="lyq">有能一日用其力于仁矣乎？我未见力不足者。</span><a href="#9.31" class="lyref">9.31</a> <span class="lyq">未之思也。夫何远之有？</span></span></span></p></li></ul></div>
 </div>
 <a id="6.13"></a><div class="lyblob">
 <div class="lyblobtag"><a href="ly#6.13">6.13</a></div>
@@ -2324,15 +2333,15 @@ img.characterimg {
 <p><span class="lyterm">之</span>所指代的内容趋于<a href="#shizhizhe">虚化</a>，可以自行体会孔子的所好与所乐。</p>
 </li>
 <li><p><a id="hao4"></a><span class="lyterm">好</span>（<span class="lypinyin">hào</span>）：喜欢，爱好。其本义为女子貌美，作形容词，读 <span class="lypinyin">hǎo</span>。<span class="lyexample"><span>【例】</span><span>汉乐府诗《陌上桑》：<span class="lyq">秦氏有好女，自名为罗敷。</span></span></span></p></li>
-<li><p><span class="lyterm">乐</span>：指乐在其中，沉浸忘我。<span class="lyseealso"><span>【参】</span><span>曾巩《梁书目录序》：<span class="lyq">盖思者，所以<a href="#zhi4b">致</a>其知也。……知至矣，则在我者之足贵，在彼者之不足玩，未有不能明之者也。有知之之明而不能好之，未可也，故加之诚心以好之；有好之之心而不能乐之，未可也，故加之至意以乐之。能乐之则<a href="#an1a">安</a>之矣。如是，则万物之自外至者安能<a href="#lei3a">累</a>我哉？</span>（玩：爱好。）</span></span></p></li>
+<li><p><span class="lyterm">乐</span>（<span class="lypinyin">lè</span>）：以之为乐，即喜爱，这里侧重乐在其中，沉浸忘我。<span class="lyexample"><span>【例】</span><span><a href="#6.23" class="lyref">6.23</a> <span class="lyq">知者乐水，仁者乐山。</span>成语“乐此不疲”。</span></span><span class="lyseealso"><span>【参】</span><span>曾巩《梁书目录序》：<span class="lyq">盖思者，所以<a href="#zhi4b">致</a>其知也。……知至矣，则在我者之足贵，在彼者之不足玩，未有不能明之者也。有知之之明而不能好之，未可也，故加之诚心以好之；有好之之心而不能乐之，未可也，故加之至意以乐之。能乐之则<a href="#an1a">安</a>之矣。如是，则万物之自外至者安能<a href="#lei3a">累</a>我哉？</span>（玩：爱好。）</span></span></p></li>
 </ul></div>
 </div>
 <a id="6.21"></a><div class="lyblob">
 <div class="lyblobtag"><a href="ly#6.21">6.21</a></div>
 <div class="lybloboriginaltext"><p>子曰：“中人以上，可以语上也；中人以下，不可以语上也。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
-<li><p><span class="lyterm">中人</span>：资质普通的人。</p></li>
-<li><p><span class="lyterm">语（<span class="lypinyin">yù</span>）上</span>：指跟他讲授谈论深层次的内容。根据环境，<span class="lyterm">上</span>的具体所指并不唯一。</p></li>
+<li><p><span class="lyterm">中人</span>：资质普通的人。<span class="lyexample"><span>【例】</span><span>熟语“中人之资”。</span></span></p></li>
+<li><p><span class="lyterm">语（<span class="lypinyin">yù</span>）上</span>：指跟他讲授谈论深层次的内容。根据环境，<span class="lyterm">上</span>的所指并不唯一。</p></li>
 </ul></div>
 </div>
 <a id="6.22"></a><div class="lyblob">
@@ -2434,7 +2443,7 @@ img.characterimg {
 <li><p><a id="ji4"></a><span class="lyterm">济</span>：救助。<span class="lyexample"><span>【例】</span><span>成语“济世救人”。</span></span><span class="lyseealso"><span>【参】</span><span>《孟子·梁惠王下》：<span class="lyq">乐民之乐者，民亦乐其乐；忧民之忧者，民亦忧其忧。乐以天下，忧以天下，然而不<a href="#wangdao">王</a>者，未之有也。</span></span></span></p></li>
 <li><p><span class="lyterm">何事于仁</span>：和仁有什么关系呢，意即怎么能说（只）是仁呢。<span class="lyterm">何事于</span>是用反问结构表示否定，have nothing to do with。</p></li>
 <li>
-<p><a id="sheng4"></a><span class="lyterm">圣</span>：睿智通达、无所不晓的人，引申为道德才能达到超凡境界的人。<span class="lyseealso"><span>【参】</span><span>《尚书·周书·洪范》：<span class="lyq">视曰明，听曰聪，思曰睿。……明作晰，聪作谋，睿作圣。</span>（作：则。）吕本中《童蒙训·卷上》记其祖父吕希哲语：<span class="lyq">惟<a href="#tianzi">天子</a>为能<a href="#bei4a">备</a>物，惟圣人为能备德。</span></span></span></p>
+<p><a id="sheng4"></a><span class="lyterm">圣</span>：睿智通达、无所不晓的人，引申为道德才能达到超凡境界的人。<span class="lyseealso"><span>【参】</span><span>《大戴礼记·哀公问五义》借孔子之口说：<span class="lyq">所谓圣人者，知通乎大道，应变而不<a href="#qiong2">穷</a>，能测万物之情性者也。</span>《尚书·周书·洪范》：<span class="lyq">视曰明，听曰聪，思曰睿。……明作晰，聪作谋，睿作圣。</span>（作：则。）吕本中《童蒙训·卷上》记其祖父吕希哲语：<span class="lyq">惟<a href="#tianzi">天子</a>为能<a href="#bei4a">备</a>物，惟圣人为能备德。</span></span></span></p>
 <p>根据孔子之意，<a href="#ren2">仁</a>是凡夫俗子能达到的最高境界，所关爱的范围毕竟有限；圣是更进一步的理想化境界，要做到博施济众，连上古贤君都力有未逮。这就激励着历代儒者在修身向学之外积极投身政治，为大众谋福利。</p>
 <p>儒家经典中，圣一般特指<a href="#yao">尧</a>、<a href="#shun">舜</a>、<a href="#yu">禹</a>、<a href="#tang">汤</a>、<a href="#wen">文</a>、<a href="#wu">武</a>、<a href="#zhougong">周公</a>和孔子，后来又专称孔子为圣人，尊为<span class="lykeyword">至圣先师</span>。</p>
 </li>
@@ -2687,7 +2696,7 @@ img.characterimg {
 <div class="lyblobannotation"><ul class="lyblobitemize">
 <li><p><a id="shanren"></a><span class="lyterm">善人</span>：品性好、常行善的人。这是<a href="#sheng4">圣人</a>、<a href="#junzi">君子</a>之后再退一步说。</p></li>
 <li><p><span class="lyterm">有恒者</span>：指思想坚定而不从俗作恶的人。<a id="heng2"></a><span class="lyterm">恒</span>：长久，持久不变。其甲骨文本字为亙（<span class="lypinyin">gèng</span>），是用天地之间的月亮来代表永恒不变的真心，金文又加忄旁为恆。<span class="lyexample"><span>【例】</span><span>《孟子·梁惠王上》：<span class="lyq">无恒产而有恒心者，惟<a href="#shi4c">士</a>为能。</span></span></span></p></li>
-<li><p><a id="wei2"></a><span class="lyterm">为</span>（<span class="lypinyin">wéi</span>）：装成，做出样子，act。<span class="lyexample"><span>【例】</span><span><a href="#9.12" class="lyref">9.12</a> <span class="lyq">无臣而为有臣，吾谁欺？</span><a href="#19.25" class="lyref">19.25</a> <span class="lyq">子为恭也。</span>《管子·枢言》：<span class="lyq">为善者，非善也。</span></span></span><span class="lyseealso"><span>【参】</span><span>“人为”即“伪”。“亡而为有”等的反面，可对比 <a href="#8.5" class="lyref">8.5</a> 。</span></span></p></li>
+<li><p><a id="wei2"></a><span class="lyterm">为</span>（<span class="lypinyin">wéi</span>）：装成，做出样子，act。“人为”即“伪”。<span class="lyexample"><span>【例】</span><span><a href="#9.12" class="lyref">9.12</a> <span class="lyq">无臣而为有臣，吾谁欺？</span><a href="#19.25" class="lyref">19.25</a> <span class="lyq">子为恭也。</span>《管子·枢言》：<span class="lyq">为善者，非善也。</span></span></span><span class="lyseealso"><span>【参】</span><span>“亡而为有”等的反面，可对比 <a href="#8.5" class="lyref">8.5</a> 。</span></span></p></li>
 <li><p><span class="lyterm">盈</span>：满，充满。<span class="lyexample"><span>【例】</span><span>《老子》第45章：<span class="lyq">大盈若冲，其用不穷。</span>（冲：空。）</span></span></p></li>
 <li><p><span class="lyterm"><a href="#tai4a">泰</a></span>：宽裕，奢侈。<span class="lyexample"><span>【例】</span><span>《管子·重令》：<span class="lyq">国虽富，不侈泰，不纵欲。</span></span></span></p></li>
 </ul></div>
@@ -2845,7 +2854,7 @@ img.characterimg {
 <p><a id="zhanzhanjingjing"></a><span class="lyterm">战战兢兢（<span class="lypinyin">jīng</span>），如临深渊，如履薄冰</span>：形容小心谨慎的样子。这是《诗经·小雅·小旻》的结尾，紧接在“<a href="#baohupinghe">不敢暴虎</a>”4句之后。</p>
 <p><span class="lyterm">战战</span>：害怕发抖的样子。<span class="lyterm">兢兢</span>：专注谨慎的样子。<span class="lyterm">兢</span>：本义为二人并排竞赛吹奏。成语“战战兢兢”既可以形容害怕发抖，也可以形容小心谨慎。<a id="lv3"></a><span class="lyterm">履</span>：踩踏，在上面行走。<span class="lyexample"><span>【例】</span><span>《周易·坤》：<span class="lyq">初六，履霜坚冰至。</span></span></span></p>
 </li>
-<li><p><span class="lyterm">而今而后</span>：如今以后，今后。<span class="lyexample"><span>【例】</span><span>《宋史·文天祥传》载，南宋丞相文天祥抗元被俘后宁死不降，妻子为他收尸，见<span class="lyq">其衣带中有赞曰：“孔曰成仁，<a href="#mengzi">孟</a>曰取义；惟其义尽，所以<a href="#7.30">仁至</a>。读圣贤书，所学何事！而今而后，<a href="#shu4a">庶几</a>无愧。”</span>（<a id="zan4"></a>赞：明，总结性的话，常为四字一句。）</span></span></p></li>
+<li><p><span class="lyterm">而今而后</span>：如今以后，今后。<span class="lyexample"><span>【例】</span><span>《宋史·文天祥传》载，南宋丞相文天祥抗元被俘后宁死不降，妻子为他收葬，见<span class="lyq">其衣带中有赞曰：“孔曰成仁，<a href="#mengzi">孟</a>曰取义；惟其义尽，所以<a href="#7.30">仁至</a>。读圣贤书，所学何事！而今而后，<a href="#shu4a">庶几</a>无愧。”</span>（<a id="zan4"></a>赞：明，总结性的话，常为四字一句。）</span></span></p></li>
 <li><p><span class="lyterm">免</span>：指尽量免于疾病，不再让身体受到伤害。这也是对弟子的告诫。<span class="lyseealso"><span>【参】</span><span>《孝经·开宗明义》：<span class="lyq">身体发肤，受之父母，不敢毁伤，孝之始也。立身行道，扬名于后世，以显父母，孝之终也。</span></span></span></p></li>
 </ul></div>
 </div>
@@ -2988,7 +2997,7 @@ img.characterimg {
 <div class="lyblobtag"><a href="ly#8.16">8.16</a></div>
 <div class="lybloboriginaltext"><p>子曰：“狂而不直，侗而不愿，悾悾而不信，吾不知之矣。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
-<li><p><span class="lyterm">而</span>：表示转折，却，即前后表现与常情相反。所以结尾会说<span class="lyterm">不知之矣</span>，有厌弃的意味。</p></li>
+<li><p><span class="lyterm">而</span>：表示转折，却，即前后表现与常情相反。所以结尾会说<span class="lyterm">吾不知之矣</span>，有厌弃的意味。可比较 <a href="#3.26" class="lyref">3.26</a> <span class="lyq">吾何以观之哉？</span></p></li>
 <li>
 <p><span class="lyterm">侗</span>（<span class="lypinyin">tóng</span>）：通“僮”，儿童，引申为幼稚无知。多用于人名。</p>
 <p><a id="yuan4"></a><span class="lyterm">愿</span>：质朴恭谨，这是其本义。<span class="lyexample"><span>【例】</span><span>《后汉书·刘宠传》：<span class="lyq">山民愿朴，乃有白首不入市井者。</span></span></span></p>
@@ -3086,7 +3095,7 @@ img.characterimg {
 <p><a id="baili"></a>《周礼·春官宗伯·大祝》规定了9种拜礼，都要先<a href="#zhengzuo">跪坐</a>，较常见的有：</p>
 <ul>
 <li><p> 稽（<span class="lypinyin">qǐ</span>）首：跪坐后双手交叠伏地，缓缓叩头，至手前稍停。这是最重的拜礼，用于下对上的礼敬，如祭拜神灵祖先、臣拜君、子拜父、徒拜师，以及新婚夫妻拜天地。后来道士单手立掌躬身行礼也称为稽首，但不是一回事。<span class="lyexample"><span>【例】</span><span>《左传·僖公二十三年》（前637年），公子<a href="#jinwengong">重耳</a>流离至卫国乡间，<span class="lyq">乞食于<a href="#yeren">野人</a>，野人与之〔土〕块。公子怒，欲鞭之。子犯曰：“天赐也。”稽首，受而载之。</span>这是向天稽首，感谢赐予国土的好兆头。</span></span><span class="lyseealso"><span>【参】</span><span>《白虎通·姓名》：<span class="lyq">人所以相拜者何？所以表情见意，屈节卑体，尊事人者也。拜之言服也。……必稽首何？敬之至也，头至地。</span></span></span></p></li>
-<li><p> 顿首：姿势同稽首，头较快触地即起，有点像现代的磕头。这是次重的拜礼，用于同级平辈间，庄重但不卑下。动作较急促，所以常带有强烈的感情色彩，如恳请、感激、哀痛、惶恐、谢罪等。后来也泛用于信件首尾。<a id="shenbaoxu"></a><span class="lyexample"><span>【例】</span><span>《左传·定公四年》（前506年），楚国大夫申包胥不饮不食7日哭于秦廷，求兵救楚：<span class="lyq">秦哀公为之赋《无衣》，〔申包胥〕九顿首而坐，秦师乃出。</span>（为国出使，故不稽首。《无衣》见于《诗经·秦风》。）王羲之写给友人的《丧乱帖》，开头和结尾都是<span class="lyq">羲之顿首。</span></span></span></p></li>
+<li><p> 顿首：姿势同稽首，头较快触地即起，有点像现代的磕头。这是次重的拜礼，用于同级平辈间，庄重但不卑下。动作较急促，所以常带有强烈的感情色彩，如恳请、感激、哀痛、惶恐、谢罪等。后来泛用于表奏信函首尾，表示郑重致敬。<a id="shenbaoxu"></a><span class="lyexample"><span>【例】</span><span>《左传·定公四年》（前506年），楚国大夫申包胥不饮不食7日哭于秦廷，求兵救楚：<span class="lyq">秦哀公为之赋《无衣》，〔申包胥〕九顿首而坐，秦师乃出。</span>（为国出使，故不稽首。《无衣》见于《诗经·秦风》。）南宋绍兴六年（1136年）末，学者胡安国写成《春秋传》，进表开头一段和结尾都说：<span class="lyq">臣安国诚皇诚恐，顿首顿首。</span>东晋王羲之写给友人的《丧乱帖》，首末都是<span class="lyq">羲之顿首。</span></span></span></p></li>
 <li>
 <p> 空首：跪坐后拱手于胸，俯头至手，又称“拜手”，也就是没有上下文的普通的<span class="lykeyword">拜</span>。它是上对下稽首的答礼，又作为常礼使用，程度上近似于现代的鞠躬。<a id="zaibai"></a>重复性的<span class="lykeyword">再拜</span>等，敬意更深，但止于四拜。“百拜”是后起的客套话。<span class="lyexample"><span>【例】</span><span><a href="#10.15" class="lyref">10.15</a> <a href="#10.16" class="lyref">10.16</a> <a href="#10.23" class="lyref">10.23</a> 。《左传·哀公十七年》（前478年），<a href="#aigong">鲁哀公</a>与齐平公会盟，<span class="lyq"><a href="#mengwubo">孟武伯</a><a href="#xiang4">相</a>。齐侯稽首，公拜。齐人怒。武伯曰：“非天子，寡君无所稽首。”</span>武伯之父<a href="#mengyizi">孟懿子</a>曾向孔子学礼，这次就有了实效，占了强邻的上风，让齐人耿耿于怀。</span></span></p>
 <p><a id="zaibaiqishou"></a><span class="lykeyword">再拜稽首</span>是两次空首再加稽首，比稽首更隆重。</p>
@@ -3355,7 +3364,7 @@ img.characterimg {
 <li><p><span class="lyterm">缊</span>（<span class="lypinyin">yùn</span>）：新旧混杂的棉絮。</p></li>
 <li><p><span class="lyterm">狐貉</span>（<span class="lypinyin">hé</span>）：指贵重的皮袍。<span class="lyterm">貉</span>：像狐狸而较粗短的野兽，<span class="lyq">其毛深浓温滑，可为裘服</span>（明代李时珍《本草纲目》）。</p></li>
 <li><p><a id="buzhibuqiu"></a><span class="lyterm">不忮（<span class="lypinyin">zhì</span>）不求，何用不臧（<span class="lypinyin">zāng</span>）？</span><span class="lyterm">忮</span>：因妒忌而生害人之心。<span class="lyterm">臧</span>：善，好。这是《诗经·邶（<span class="lypinyin">bèi</span>）风·雄雉》的结尾句，意思是：不忌害别人又没有非分的贪求，（这样的人）做什么事会不是善事呢？也可理解为，做什么事不会顺顺当当呢？原诗是写一位妇女思念远行未归的丈夫。<span class="lyseealso"><span>【参】</span><span>《诗集传》：<span class="lyq">忧其远行之犯患，冀其善处而得全也。</span></span></span></p></li>
-<li><p><span class="lyterm">诵</span>：抑扬顿挫地高声读或背。<span class="lyseealso"><span>【参】</span><span>《汉书·艺文志》：<span class="lyq">《<a href="#shangshu">书</a>》曰：“诗言志，歌<a href="#yong3">咏</a>言。”故哀乐之心感，而歌咏之声发；诵其言谓之诗，咏其声谓之歌。</span>（所引出自《尚书·虞夏书·舜典》。）</span></span></p></li>
+<li><p><span class="lyterm">诵</span>：抑扬顿挫地高声背出，后来也泛指朗读。<span class="lyseealso"><span>【参】</span><span>《周礼·春官宗伯·大司乐》郑玄注：<span class="lyq">倍文曰讽，以声节之曰诵。</span>（倍：通“背”。）《汉书·艺文志》：<span class="lyq">《<a href="#shangshu">书</a>》曰：“诗言志，歌<a href="#yong3">咏</a>言。”故哀乐之心感，而歌咏之声发；诵其言谓之诗，咏其声谓之歌。</span>（所引出自《尚书·虞夏书·舜典》。）</span></span></p></li>
 <li><p><a id="hezuyizang"></a><span class="lyterm">是道也，何足以臧？</span>：这么做，怎么够得上好呢？就是说不作恶并不等于善，包含着对子路更进一步的期望。<span class="lyseealso"><span>【参】</span><span><a href="#5.7" class="lyref">5.7</a> 。还可以比较<a href="#dezhi">德治</a>注重的<a href="#1.4">修己</a><a href="#6.30">立人</a>，与<a href="#fazhi">法家</a>强调的守法不触碰底线的差别。</span></span></p></li>
 </ul></div>
 </div>
@@ -3527,7 +3536,7 @@ img.characterimg {
 <div class="lybloboriginaltext"><p>食不语，寝不言。</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize"><li>
 <p><span class="lyterm">语</span>：对话，交谈。这说的是口中含有食物的情况。</p>
-<p><span class="lyterm">言</span>：自言自语，念叨。</p>
+<p><span class="lyterm">言</span>：自言自语，念叨。<span class="lyseealso"><span>【参】</span><span>《周礼·春官宗伯·大司乐》郑玄注：<span class="lyq">发端曰言，答述曰语。</span></span></span></p>
 </li></ul></div>
 </div>
 <a id="10.11"></a><div class="lyblob">
@@ -3841,7 +3850,7 @@ img.characterimg {
 <p><a href="#zigong">子贡</a>问：“<a href="#zizhang">师</a>与<a href="#zixia">商</a>也孰贤？”子曰：“师也过，商也不及。”</p>
 <p>曰：“然则师愈与？”子曰：“过犹不及。”</p>
 </div>
-<div class="lyblobannotation"><ul class="lyblobitemize"><li><p><span class="lyterm">过<a href="#you2">犹</a>不及</span>：事情做过头了，就和做得不够一样（都有缺憾）。<span class="lyseealso"><span>【参】</span><span><a href="#13.21" class="lyref">13.21</a> <a href="#19.3" class="lyref">19.3</a> 。《四书集注》：<span class="lyq">子张才高意广，而好为苟难，故常过中；子夏笃信谨守，而规模狭隘，故常不及。</span>（<a href="#gou3">苟</a>难：意义不大的难事。）亦参 <a href="#3.22" class="lyref">3.22</a> <a href="#guanzhongyanzi">所引</a>《孔子家语》。</span></span></p></li></ul></div>
+<div class="lyblobannotation"><ul class="lyblobitemize"><li><p><span class="lyterm">过<a href="#you2">犹</a>不及</span>：事情做过头了，就和做得不够一样（都有缺憾）。<span class="lyseealso"><span>【参】</span><span><a href="#13.21" class="lyref">13.21</a> <span class="lyq">不得中行而与之，必也狂狷乎！</span><a href="#19.3" class="lyref">19.3</a> <span class="lyq">君子尊贤而容众，嘉善而矜不能。</span>《四书集注》：<span class="lyq">子张才高意广，而好为苟难，故常过中；子夏笃信谨守，而规模狭隘，故常不及。</span>（<a href="#gou3">苟</a>难：意义不大的难事。）亦参 <a href="#3.22" class="lyref">3.22</a> <a href="#guanzhongyanzi">所引</a>《孔子家语》。</span></span></p></li></ul></div>
 </div>
 <a id="11.17"></a><div class="lyblob">
 <div class="lyblobtag"><a href="ly#11.17">11.17</a></div>
@@ -3924,7 +3933,7 @@ img.characterimg {
 <li><p><span class="lyterm">闻斯行诸？</span>：听到了（一个道理）就应该（赶紧）去做吗？</p></li>
 <li><p><span class="lyterm">有父兄在</span>：意思是应该先请示父兄的意见，多考虑他们的需要和感受。</p></li>
 <li><p><span class="lyterm">退</span>：指畏缩，做事容易打退堂鼓。<span class="lyseealso"><span>【参】</span><span>冉求以<a href="#yi4k">艺</a>著称，会得多了，是不是就容易心事重、顾虑多、<span class="lyq">巧者劳而知者忧</span>（《庄子·列御寇》）呢？能反映冉求这方面性格的例子如：<a href="#6.12" class="lyref">6.12</a> <span class="lyq">冉求曰：“非不说子之道，力不足也。”</span><a href="#3.6" class="lyref">3.6</a> <span class="lyq">子谓冉有曰：“女弗能救与？”对曰：“不能。”</span><a href="#13.14" class="lyref">13.14</a> <span class="lyq">子曰：“何晏也？”对曰：“有政。”</span></span></span></p></li>
-<li><p><span class="lyterm">兼人</span>：一人抵多人，这里是指子路勇于进取，果敢好胜。另外也可以形容勇力过人。<span class="lyexample"><span>【例】</span><span>《汉书·韩信传》：<span class="lyq">受辱于跨下，无兼人之勇，不足畏也。</span>（跨：通“胯”。）</span></span><span class="lyseealso"><span>【参】</span><span>孔子曾说子路 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">好勇过我</span>、<a href="#6.8" class="lyref">6.8</a> <span class="lyq">由也果</span>、<a href="#11.18" class="lyref">11.18</a> <span class="lyq">由也喭</span>。能反映子路这方面性格的例子很多，比如 <a href="#12.12" class="lyref">12.12</a> <span class="lyq">片言可以折狱</span>、<span class="lyq">无宿诺</span>，<a href="#11.26" class="lyref">11.26</a> <span class="lyq">率尔而对</span>，问孔子 <a href="#17.23" class="lyref">17.23</a> <span class="lyq">君子尚勇乎？</span><a href="#7.11" class="lyref">7.11</a> <span class="lyq">子行三军，则谁与？</span>也包括 <a href="#15.2" class="lyref">15.2</a> <span class="lyq">子路愠</span>、<a href="#6.28" class="lyref">6.28</a> <a href="#17.5" class="lyref">17.5</a> <span class="lyq">子路不说</span>，以及说孔子 <a href="#13.3" class="lyref">13.3</a> <span class="lyq">子之迂也</span>等等。</span></span></p></li>
+<li><p><span class="lyterm">兼人</span>：一人抵多人，这里是指子路勇于进取，果敢好胜。另外也可以形容勇力过人。<span class="lyexample"><span>【例】</span><span>《汉书·韩信传》：<span class="lyq">受辱于跨下，无兼人之勇，不足畏也。</span>（跨：通“胯”。）</span></span><span class="lyseealso"><span>【参】</span><span>孔子曾说子路 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">好勇过我</span>、<a href="#6.8" class="lyref">6.8</a> <span class="lyq">由也果</span>、<a href="#11.18" class="lyref">11.18</a> <span class="lyq">由也喭</span>。能反映子路这方面性格的例子很多，比如 <a href="#12.12" class="lyref">12.12</a> <span class="lyq">片言可以折狱</span>、<span class="lyq">无宿诺</span>，<a href="#11.26" class="lyref">11.26</a> <span class="lyq">率尔而对</span>，问孔子 <a href="#17.23" class="lyref">17.23</a> <span class="lyq">君子尚勇乎？</span><a href="#7.11" class="lyref">7.11</a> <span class="lyq">子行三军，则谁与？</span>也包括 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">闻之喜</span>、<a href="#15.2" class="lyref">15.2</a> <span class="lyq">子路愠</span>、<a href="#6.28" class="lyref">6.28</a> <a href="#17.5" class="lyref">17.5</a> <span class="lyq">子路不说</span>，以及说孔子 <a href="#13.3" class="lyref">13.3</a> <span class="lyq">子之迂也</span>等等。</span></span></p></li>
 </ul></div>
 </div>
 <a id="11.23"></a><div class="lyblob">
@@ -4894,7 +4903,7 @@ img.characterimg {
 <p>“出位”就是做超出本分的事，现代常用来指哗众取宠的奇言异行。<span class="lyexample"><span>【例】</span><span>《明史·饶伸传》：<span class="lyq">诏诸司严约所属，毋出位沽名。</span></span></span></p>
 <div class="lyseealso">
 <p><span>【参】</span><span><a href="#8.4" class="lyref">8.4</a>  中曾子已经说过：<span class="lyq">笾豆之事，则有司存。</span>《史记·陈丞相世家》载，陈平以灭诸吕、拥立孝文帝之功不如周勃，让勃为右丞相。某日上朝，孝文帝问周勃全国每年有多少决狱（诉讼判案）、钱谷出入（赋税收支），周勃<span class="lyq"><a href="#xie4a">谢</a>不知，汗出沾背，愧不能对。于是上亦问左丞相平，平曰：“有主者。”上曰：“主者谓谁？”平曰：“陛下即问决狱，责廷尉；问钱谷，责治粟内史。”上曰：“<a href="#gou3a">苟</a>各有主者，而君所主者何事也？”平<a href="#xie4a">谢</a>曰：“主臣！陛下不知<a href="#qi2">其</a><a href="#nudun">驽下</a>，使待罪宰相。宰相者，上佐天子理阴阳、顺四时，下育万物之宜，外镇抚四夷诸侯，内亲附百姓，使卿大夫各得任其职焉。”孝文帝乃称善。右丞相大惭，出而让陈平曰：“君独素不教我对！”陈平笑曰：“君居其位，不知其任邪？且陛下即问长安中盗贼数，君欲强对邪？”于是绛侯自知其能不如平远矣。居顷之，绛侯谢病请免相，陈平专为一丞相。</span></span></p>
-<p>（主：掌管。即：假如。责：质问。君：您，阁下，有戏谑意。待罪：任职的谦虚说法，用于陈奏帝王，意思是早晚要出岔子被治罪了。让：责备。独：却，偏偏。素：向来，平时。绛侯：即周勃。）</p>
+<p>（<a id="zhu3a"></a>主：掌管。即：假如。责：质问。君：您，阁下，有戏谑意。待罪：任职的谦虚说法，用于陈奏帝王，意思是早晚要出岔子被治罪了。让：责备。独：却，偏偏。素：向来，平时。绛侯：即周勃。）</p>
 </div>
 </li>
 </ul></div>
@@ -4920,7 +4929,7 @@ img.characterimg {
 <div class="lybloboriginaltext"><p><a href="#zigong">子贡</a>方人。子曰：“<a href="#zigong">赐</a>也贤乎哉？夫我则不暇。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
 <li><p><span class="lyterm">方人</span>：品评别人。<span class="lyterm">方</span>：比拟，比较，比方，引申为评点议论。<span class="lyexample"><span>【例】</span><span>《后汉书·周举传》：<span class="lyq">观天察人，准今方古，诚可危惧。</span>（准：据。）</span></span></p></li>
-<li><p><span class="lyterm"><a href="#fu2">夫</a>我则不暇（<span class="lypinyin">xiá</span>）</span>：要是我就没这闲工夫。<span class="lyterm">暇</span>：空闲。<span class="lyseealso"><span>【参】</span><span>这可以用孔子本人的话串讲：<a href="#4.24" class="lyref">4.24</a> <span class="lyq">君子欲讷于言而敏于行</span>；<a href="#7.19" class="lyref">7.19</a> <span class="lyq">发愤忘食，乐以忘忧</span>；<a href="#12.21" class="lyref">12.21</a> <span class="lyq">攻其恶，无攻人之恶。</span><a href="#8.11" class="lyref">8.11</a> <span class="lyq">使骄且吝，其余不足观也已。</span></span></span></p></li>
+<li><p><span class="lyterm"><a href="#fu2">夫</a>我则不暇（<span class="lypinyin">xiá</span>）</span>：要是我就没这闲工夫。<span class="lyterm">暇</span>：空闲。<span class="lyseealso"><span>【参】</span><span>这可以用孔子本人的话串讲：<a href="#4.24" class="lyref">4.24</a> <span class="lyq">君子欲讷于言而敏于行</span>，<a href="#2.13" class="lyref">2.13</a> <span class="lyq">先行其言而后从之</span>；<a href="#7.19" class="lyref">7.19</a> <span class="lyq">发愤忘食，乐以忘忧</span>，<a href="#12.21" class="lyref">12.21</a> <span class="lyq">攻其恶，无攻人之恶。</span><a href="#8.11" class="lyref">8.11</a> <span class="lyq">使骄且吝，其余不足观也已。</span></span></span></p></li>
 </ul></div>
 </div>
 <a id="14.30"></a><div class="lyblob">
@@ -5515,8 +5524,8 @@ img.characterimg {
 <div class="lyblobtag"><a href="ly#16.7">16.7</a></div>
 <div class="lybloboriginaltext"><p>孔子曰：“君子有三戒：少之时，血气未定，戒之在色；及其壮也，血气方刚，戒之在斗；及其老也，血气既衰，戒之在得。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
-<li><p><span class="lyterm">血气方刚</span>：正当精力充沛。<span class="lyterm"><a href="#gang1">刚</a></span>：强，旺盛。<span class="lyterm">血气</span>：血液和元气，传统中医认为是维持人体活力的两种要素：血液的运转使全身滋受营养，元气充盈能够改善血液功能。<span class="lyseealso"><span>【参】</span><span>清代高世栻《医学真传·气血》：<span class="lyq">人之一身，皆气血之所循行。气非血不和，血非气不运。故曰：气主煦之，血主濡之。</span>（煦：温暖。濡（<span class="lypinyin">rú</span>）：滋润。）</span></span></p></li>
-<li><p><span class="lyterm">得</span>：指多贪欲，贪得无厌。</p></li>
+<li><p><span class="lyterm">血气方刚</span>：正当精力充沛。<span class="lyterm"><a href="#gang1">刚</a></span>：强，旺盛。<span class="lyterm">血气</span>：血液和元气，传统中医认为这是维持人体活力的两种要素：血液的运转使全身滋受营养，元气充盈能够改善血液功能。<span class="lyseealso"><span>【参】</span><span>清代高世栻《医学真传·气血》：<span class="lyq">人之一身，皆气血之所循行。气非血不和，血非气不运。故曰：气<a href="#zhu3a">主</a>煦之，血主濡之。</span>（煦：温暖。濡（<span class="lypinyin">rú</span>）：滋润。）</span></span></p></li>
+<li><p><span class="lyterm">得</span>：指多贪欲，贪得无厌。<span class="lyseealso"><span>【参】</span><span><a href="#5.11" class="lyref">5.11</a> <span class="lyq">欲，焉得刚？</span></span></span></p></li>
 </ul></div>
 </div>
 <a id="16.8"></a><div class="lyblob">
@@ -5632,8 +5641,8 @@ img.characterimg {
 <div class="lybloboriginaltext"><p>子曰：“唯上知与下愚不移。”</p></div>
 <div class="lyblobannotation">
 <ul class="lyblobitemize">
-<li><p><span class="lyterm">上知</span>：最智慧的人。<span class="lyterm">下愚</span>：最愚笨的人。<span class="lyseealso"><span>【参】</span><span><a href="#16.9" class="lyref">16.9</a> </span></span></p></li>
-<li><p><span class="lyterm">不移</span>：无法影响、改变。古注有认为应把本章与前一章合为一章。</p></li>
+<li><p><span class="lyterm">上知</span>：最智慧的人。<span class="lyterm">下愚</span>：最愚笨的人。<span class="lyseealso"><span>【参】</span><span><a href="#16.9" class="lyref">16.9</a> <span class="lyq">生而知之者，上也……困而不学，民斯为下矣。</span></span></span></p></li>
+<li><p><span class="lyterm">不移</span>：无法影响、改变。古注有认为应把本章与前一章合为一章。<span class="lyseealso"><span>【参】</span><span><a href="#6.21" class="lyref">6.21</a> <span class="lyq">中人以上，可以语上也；中人以下，不可以语上也。</span></span></span></p></li>
 </ul>
 <p><span class="lyseealso"><span>【参】</span><span>上智与下愚，理解为先天禀赋或后天表现皆通。如清代阮元《研经室集·性命古训》认为：<span class="lyq">愚也，非恶也，智者善，愚者亦善也。古人每言才性，即孟子所谓非才之罪也。……愚亦命之所有，下愚亦命之所有。</span>（“非才之罪”出自《孟子·告子上》。才：天性。）《论语注疏》说：<span class="lyq">上知不可使为恶，下愚不可使<a href="#qiang3">强</a>贤。</span>《四书集注》则引程颐语：<span class="lyq">所谓下愚有二焉：自暴自弃也。人苟以善自治，则无不可移，虽昏愚之至，皆可渐磨而进也。惟自暴者拒之以不信，自弃者绝之以不为，虽圣人与居，不能化而入也。……圣人以其自绝于善，谓之下愚。</span></span></span></p>
 </div>
@@ -5719,7 +5728,10 @@ img.characterimg {
 <div class="lyblobtag"><a href="ly#17.9">17.9</a></div>
 <div class="lybloboriginaltext"><p>子曰：“小子何莫学夫《诗》？《诗》，可以兴，可以观，可以群，可以怨。迩之事父，远之事君，多识于鸟兽草木之名。”</p></div>
 <div class="lyblobannotation"><ul class="lyblobitemize">
-<li><p><span class="lyterm">兴</span>（<span class="lypinyin">xīng</span>）：兴起，指激发情感，陶冶人性。<span class="lyseealso"><span>【参】</span><span>梁启超《要籍解题及其读法》：<span class="lyq">古者以诗为教育主要之工具，其目的在使一般人养成美感，有玩赏文学的能力，则人格不期而自进于高明。</span></span></span></p></li>
+<li>
+<p><span class="lyterm">兴</span>（<span class="lypinyin">xīng</span>）：兴起，指激发情感，陶冶人性。<span class="lyseealso"><span>【参】</span><span>梁启超《要籍解题及其读法》：<span class="lyq">古者以诗为教育主要之工具，其目的在使一般人养成美感，有玩赏文学的能力，则人格不期而自进于高明。</span></span></span></p>
+<p>另外，古人把《诗经》的主要表现手法归纳为<span class="lykeyword">赋、比、兴</span>，其中的兴是指托物言事、以物喻事，例如《<a href="#guanju">关雎</a>》的开头4句。</p>
+</li>
 <li><p><span class="lyterm">观</span>：观察，指察览世间百态，体会缘由得失。</p></li>
 <li><p><span class="lyterm">群</span>：合群，指学习交际练达之道。<span class="lyseealso"><span>【参】</span><span><a href="#16.13" class="lyref">16.13</a> <span class="lyq">不学《诗》，无以言。</span></span></span></p></li>
 <li><p><span class="lyterm"><a href="#yuan4a">怨</a></span>：悲愁，指抒发心中的不满和苦闷，又特指讥刺时政。<span class="lyseealso"><span>【参】</span><span>《史记·屈原贾生列传》探究了屈原创作《离骚》时的心境：<span class="lyq">屈平正道直行，竭忠尽智以事其君，谗人<a href="#jian4b">间</a>之，可谓<a href="#qiong2">穷</a>矣。信而见疑，忠而被谤，能无怨乎？屈平之作《离骚》，盖自怨生也。《<a href="#shijing">国风</a>》好色而不淫，《小雅》怨诽而不乱，若《离骚》者，可谓兼之矣。</span></span></span></p></li>
@@ -5875,7 +5887,7 @@ img.characterimg {
 <p>子曰：“君子义以为上。君子有勇而无义为乱，小人有勇而无义为盗。”</p>
 </div>
 <div class="lyblobannotation"><div class="lyseealso">
-<p><span>【参】</span><span><a href="#8.10" class="lyref">8.10</a> 。《孔子家语·子路初见》描述了子路第一次见到孔子的情景：</span></p>
+<p><span>【参】</span><span><a href="#8.10" class="lyref">8.10</a> <span class="lyq">好勇疾贫，乱也。</span>《孔子家语·子路初见》描述了子路第一次见到孔子的情景：</span></p>
 <div class="lyquotepara">
 <p>子路见孔子。子曰：“汝何好乐？”对曰：“好长剑。”</p>
 <p>孔子曰：“吾非此之问也。徒谓以子之所能，而加之以学问，岂可及哉？”子路曰：“学岂益哉也？”</p>
@@ -6653,7 +6665,7 @@ img.characterimg {
 <p><span class="lybook">《论语本解》</span>，孙钦善著，三联书店，2009年。注释精准，各章之间经常提供交叉引用，5个附论也各有价值。2013年出修订版。</p>
 <p><span class="lybook">《论语今注今译》</span>，毛子水注译，重庆出版社，2009年。原属台湾商务印书馆“古籍今注今译丛书”的一种，1975年出版，1984年作者校订再版，在海外具有广泛持久的影响。它的大部分注释选自合适的古注，辅以按语，另有不少生动活泼的议论，遇到难理解或争议大的就直接写明，读起来既顺畅又踏实。该丛书由上海商务印书馆前总经理（1930—1945）、台湾商务印书馆前董事长（1964—1979）王云五先生主编，共出版约60种。</p>
 <p><span class="lybook">《论语通译》</span>（修订版），徐志刚译注，人民文学出版社，语文新课标必读丛书，2006年。发行量较大，简明清通，但似乎过于简化，疏漏略多。</p>
-<p><a id="lunyuzhushu"></a><span class="lybook">《论语注疏》</span>，〔魏〕何晏等集解，〔梁〕皇侃义疏，〔北宋〕邢昺正义，梁运华整理，山东画报出版社，四库家藏丛书，2004年。儒家“十三经注疏”之一，汉唐经学的总结，朱熹《四书集注》之前的通行注本。书前“提要”介绍：<span class="lyq">三国时，魏何晏等五人集孔安国、包咸、周氏、马融、郑玄、陈群、王肃和周生烈等对《论语》的解说，择善而从，成《论语集解》。梁皇侃对《集解》进行疏解，成《论语义疏》。宋咸平二年（公元999年），邢昺遵诏改定皇侃《义疏》，其删繁就简，增加对义理的阐述，终成《论语正义》二十卷，又名《论语注疏》。</span>因清儒刘宝楠也有《论语正义》，为清代经学之结晶，故本书多称《论语集解》或《论语注疏》。</p>
+<p><a id="lunyuzhushu"></a><span class="lybook">《论语注疏》</span>，〔三国魏〕何晏等集解，〔南朝梁〕皇侃义疏，〔北宋〕邢昺正义，梁运华整理，山东画报出版社，四库家藏丛书，2004年。儒家“十三经注疏”之一，汉唐经学的总结，朱熹《四书集注》之前的通行注本。书前“提要”介绍：<span class="lyq">三国时，魏何晏等五人集孔安国、包咸、周氏、马融、郑玄、陈群、王肃和周生烈等对《论语》的解说，择善而从，成《论语集解》。梁皇侃对《集解》进行疏解，成《论语义疏》。宋咸平二年（公元999年），邢昺遵诏改定皇侃《义疏》，其删繁就简，增加对义理的阐述，终成《论语正义》二十卷，又名《论语注疏》。</span>因清儒刘宝楠也有《论语正义》，为清代经学之结晶，故本书多称《论语集解》或《论语注疏》。</p>
 <p><span class="lybook">《四书集注》</span>，〔南宋〕朱熹集注，陈戍国标点，岳麓书社，2004年。</p>
 <p><span class="lybook">《诸子集成（第一册）：论语正义·孟子正义》</span>，〔清〕刘宝楠、刘恭冕、焦循撰，北京燕山出版社，2008年。</p>
 <p><a id="lunyujishi"></a><span class="lybook">《论语集释》</span>，程树德撰，中华书局，中华国学文库，2013年。本书可称《论语》注解大全，分类集成了从汉至清各家学者的研究心得，引书680种，并加按语，方便后人系统了解各种诠释与引申，至可感佩。或有讥为取舍不尽精当，敢问更精者何在？其《自序》称：<span class="lyq">夫文化者国家之生命，思想者人民之倾向，教育者立国之根本，凡爱其国者，未有不爱其国之文化。</span>可与钱穆先生《国史大纲》开篇的“凡读本书请先具下列诸信念”对读。</p>
@@ -6673,16 +6685,16 @@ img.characterimg {
 <p><span class="lybook">《孔丛子》</span>，王钧林、周海生译注，中华书局，中华经典藏书丛书，2012年。</p>
 <a id="references-misc"></a><h2>其它</h2>
 <p><span class="lybook">《史记》</span>，李全华标点，岳麓书社，古典名著普及文库，1988年。</p>
-<p><span class="lybook">《史记》</span>，〔汉〕司马迁撰，〔宋〕裴骃集解，〔唐〕司马贞索隐，〔唐〕张守节正义，中华书局，中华国学文库，2011年。通称“三家注”本，是宋代以来古注的标准版本。</p>
+<p><span class="lybook">《史记》</span>，〔西汉〕司马迁撰，〔南朝宋〕裴骃集解，〔唐〕司马贞索隐，〔唐〕张守节正义，中华书局，中华国学文库，2011年。通称“三家注”本，是宋代以来古注的标准版本。</p>
 <p><span class="lybook">《史记笺证》</span>（修订版），韩兆琦编著，江西人民出版社，2009年。</p>
-<p><span class="lybook">《汉书》</span>，〔汉〕班固撰，〔唐〕颜师古注，中华书局，2000年。</p>
-<p><span class="lybook">《后汉书》</span>，〔宋〕范晔撰，〔唐〕李贤等注，中华书局，2000年。</p>
-<p><span class="lybook">《三国志》</span>，〔晋〕陈寿撰，〔宋〕裴松之注，中华书局，2005年。</p>
+<p><span class="lybook">《汉书》</span>，〔东汉〕班固撰，〔唐〕颜师古注，中华书局，2000年。</p>
+<p><span class="lybook">《后汉书》</span>，〔南朝宋〕范晔撰，〔唐〕李贤等注，中华书局，2000年。</p>
+<p><span class="lybook">《三国志》</span>，〔西晋〕陈寿撰，〔南朝宋〕裴松之注，中华书局，2005年。</p>
 <p><span class="lybook">《四书五经》</span>，陈戍国点校，岳麓书社，2003年。白文版，11合1（含春秋三传），使用方便。</p>
 <p><span class="lybook">《春秋左传正义》</span>，〔西晋〕杜预注，〔唐〕孔颖达正义，北京大学出版社，十三经注疏丛书，1999年。</p>
 <p><span class="lybook">《左传译注》</span>，李梦生撰，上海古籍出版社，中华古籍译注丛书，1998年。</p>
 <p><span class="lybook">《尚书译注》</span>，李民、王健撰，上海古籍出版社，国学经典译注丛书，2012年。《尚书》篇幅不长，但以诘屈聱牙著称。这个译注本精细周详，有历史背景分析，有各家注的比较，引证充分，点评得当，给人呵护备至的感觉。</p>
-<p><span class="lybook">《毛诗正义》</span>，〔汉〕毛亨传，〔汉〕郑玄笺，〔唐〕孔颖达等疏，梁运华整理，山东画报出版社，四库家藏丛书，2004年。</p>
+<p><span class="lybook">《毛诗正义》</span>，〔西汉〕毛亨传，〔东汉〕郑玄笺，〔唐〕孔颖达等疏，梁运华整理，山东画报出版社，四库家藏丛书，2004年。</p>
 <p><span class="lybook">《诗经》</span>，〔南宋〕朱熹集传，原名《诗集传》，上海古籍出版社，国学典藏丛书，2013年。</p>
 <p><a id="shijingquanzhu"></a><span class="lybook">《诗经全注》</span>，褚斌杰注，人民文学出版社，世界文学名著文库，1999年。</p>
 <p><span class="lybook">《周礼·仪礼·礼记》</span>，陈戍国点校，岳麓书社，古典名著普及文库，2006年。</p>
@@ -6692,17 +6704,17 @@ img.characterimg {
 <p><span class="lybook">《三礼辞典》</span>，钱玄、钱兴奇编著，江苏古籍出版社，1998年。</p>
 <p><span class="lybook">《大戴礼记今注今译》</span>，高明注译，台湾商务印书馆，古籍今注今译丛书，1975年。</p>
 <p><span class="lybook">《周易译注》</span>，黄寿祺、张善文撰，上海古籍出版社，十三经译注丛书，2004年。</p>
-<p><span class="lybook">《周易正义》</span>，〔魏〕王弼、〔东晋〕韩伯注，〔唐〕孔颖达等疏，何锡光、虎维铎整理，山东画报出版社，四库家藏丛书，2004年。</p>
+<p><span class="lybook">《周易正义》</span>，〔三国魏〕王弼、〔东晋〕韩伯注，〔唐〕孔颖达等疏，何锡光、虎维铎整理，山东画报出版社，四库家藏丛书，2004年。</p>
 <p><span class="lybook">《孝经·二十四孝》</span>，喻岳衡、喻涵译注，岳麓书社，古典名著阅读无障碍本，2012年。</p>
 <p><span class="lybook">《国语·战国策》</span>，李维琦点校，岳麓书社，古典名著普及文库。2006年。</p>
 <p><span class="lybook">《战国策注释》</span>，何建章注释，中华书局，1990年。</p>
-<p><span class="lybook">《孟子注疏》</span>，〔汉〕赵岐注，〔宋〕孙奭疏，龚抗云整理，山东画报出版社，四库家藏丛书，2004年。</p>
+<p><span class="lybook">《孟子注疏》</span>，〔东汉〕赵岐注，〔北宋〕孙奭疏，龚抗云整理，山东画报出版社，四库家藏丛书，2004年。</p>
 <p><span class="lybook">《孟子译注》</span>，杨伯峻编著，中华书局，1960年。</p>
 <p><span class="lybook">《荀子校注》</span>，张觉校注，岳麓书社，古典名著标准读本，2006年。</p>
 <p><span class="lybook">《荀子集解》</span>，〔清〕王先谦撰，沈啸寰、王星贤整理，中华书局，中华国学文库，2012年。</p>
 <p><span class="lybook">《韩诗外传译注》</span>，〔西汉〕韩婴编著，魏达纯译注，东北师范大学出版社，1993年。</p>
 <p><span class="lybook">《韩诗外传笺疏》</span>，屈守元著，巴蜀书社，2012年。</p>
-<p><span class="lybook">《孔子家语》</span>，〔魏〕王肃编著，王国轩、王秀梅译注，中华书局，中华经典名著全本全注全译丛书，2011年。</p>
+<p><span class="lybook">《孔子家语》</span>，〔三国魏〕王肃编著，王国轩、王秀梅译注，中华书局，中华经典名著全本全注全译丛书，2011年。</p>
 <p><span class="lybook">《老子·庄子·列子》</span>，张震点校，岳麓书社，古典名著普及文库，2006年。</p>
 <p><a id="laozizhuyi"></a><span class="lybook">《老子注译》</span>，高亨著，华钟彦校，河南人民出版社，1980年。《老子》版本繁多，文字、断句屡有分歧，难辨原委，本书引文均据此本。</p>
 <p><span class="lybook">《庄子》</span>，方勇译注，中华书局，中华经典名著全本全注全译丛书，2010年。</p>

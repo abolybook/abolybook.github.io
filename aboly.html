@@ -21,8 +21,9 @@ h1.lybodychapter {
     background-color: #d9edf7;
     border-radius: 0.4em;
     letter-spacing: 0.6em;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     padding: 0.5em;
     text-align: center;
 }
@@ -67,7 +68,6 @@ div.lyblob {
 div.lyblobtag {
     border: 2px solid #c0c0c0;
     border-radius: 0em 1em;
-    display: inline-block;
     padding: 0.5em;
     text-align: center;
     position: relative;
@@ -294,72 +294,72 @@ img.characterimg {
 (function() {
     // Random jump.
     var blobs = [
-        "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10",
-        "1.11", "1.12", "1.13", "1.14", "1.15", "1.16",
-        "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10",
-        "2.11", "2.12", "2.13", "2.14", "2.15", "2.16", "2.17", "2.18", "2.19", "2.20",
-        "2.21", "2.22", "2.23", "2.24",
-        "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9", "3.10",
-        "3.11", "3.12", "3.13", "3.14", "3.15", "3.16", "3.17", "3.18", "3.19", "3.20",
-        "3.21", "3.22", "3.23", "3.24", "3.25", "3.26",
-        "4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "4.10",
-        "4.11", "4.12", "4.13", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "4.20",
-        "4.21", "4.22", "4.23", "4.24", "4.25", "4.26",
-        "5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8", "5.9", "5.10",
-        "5.11", "5.12", "5.13", "5.14", "5.15", "5.16", "5.17", "5.18", "5.19", "5.20",
-        "5.21", "5.22", "5.23", "5.24", "5.25", "5.26", "5.27", "5.28",
-        "6.1", "6.2", "6.3", "6.4", "6.5", "6.6", "6.7", "6.8", "6.9", "6.10",
-        "6.11", "6.12", "6.13", "6.14", "6.15", "6.16", "6.17", "6.18", "6.19", "6.20",
-        "6.21", "6.22", "6.23", "6.24", "6.25", "6.26", "6.27", "6.28", "6.29", "6.30",
-        "7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8", "7.9", "7.10",
-        "7.11", "7.12", "7.13", "7.14", "7.15", "7.16", "7.17", "7.18", "7.19", "7.20",
-        "7.21", "7.22", "7.23", "7.24", "7.25", "7.26", "7.27", "7.28", "7.29", "7.30",
-        "7.31", "7.32", "7.33", "7.34", "7.35", "7.36", "7.37", "7.38",
-        "8.1", "8.2", "8.3", "8.4", "8.5", "8.6", "8.7", "8.8", "8.9", "8.10",
-        "8.11", "8.12", "8.13", "8.14", "8.15", "8.16", "8.17", "8.18", "8.19", "8.20",
-        "8.21",
-        "9.1", "9.2", "9.3", "9.4", "9.5", "9.6", "9.7", "9.8", "9.9", "9.10",
-        "9.11", "9.12", "9.13", "9.14", "9.15", "9.16", "9.17", "9.18", "9.19", "9.20",
-        "9.21", "9.22", "9.23", "9.24", "9.25", "9.26", "9.27", "9.28", "9.29", "9.30",
-        "9.31",
-        "10.1", "10.2", "10.3", "10.4", "10.5", "10.6", "10.7", "10.8", "10.9", "10.10",
-        "10.11", "10.12", "10.13", "10.14", "10.15", "10.16", "10.17", "10.18", "10.19", "10.20",
-        "10.21", "10.22", "10.23", "10.24", "10.25", "10.26", "10.27",
-        "11.1", "11.2", "11.3", "11.4", "11.5", "11.6", "11.7", "11.8", "11.9", "11.10",
-        "11.11", "11.12", "11.13", "11.14", "11.15", "11.16", "11.17", "11.18", "11.19", "11.20",
-        "11.21", "11.22", "11.23", "11.24", "11.25", "11.26",
-        "12.1", "12.2", "12.3", "12.4", "12.5", "12.6", "12.7", "12.8", "12.9", "12.10",
-        "12.11", "12.12", "12.13", "12.14", "12.15", "12.16", "12.17", "12.18", "12.19", "12.20",
-        "12.21", "12.22", "12.23", "12.24",
-        "13.1", "13.2", "13.3", "13.4", "13.5", "13.6", "13.7", "13.8", "13.9", "13.10",
-        "13.11", "13.12", "13.13", "13.14", "13.15", "13.16", "13.17", "13.18", "13.19", "13.20",
-        "13.21", "13.22", "13.23", "13.24", "13.25", "13.26", "13.27", "13.28", "13.29", "13.30",
-        "14.1", "14.2", "14.3", "14.4", "14.5", "14.6", "14.7", "14.8", "14.9", "14.10",
-        "14.11", "14.12", "14.13", "14.14", "14.15", "14.16", "14.17", "14.18", "14.19", "14.20",
-        "14.21", "14.22", "14.23", "14.24", "14.25", "14.26", "14.27", "14.28", "14.29", "14.30",
-        "14.31", "14.32", "14.33", "14.34", "14.35", "14.36", "14.37", "14.38", "14.39", "14.40",
-        "14.41", "14.42", "14.43", "14.44",
-        "15.1", "15.2", "15.3", "15.4", "15.5", "15.6", "15.7", "15.8", "15.9", "15.10",
-        "15.11", "15.12", "15.13", "15.14", "15.15", "15.16", "15.17", "15.18", "15.19", "15.20",
-        "15.21", "15.22", "15.23", "15.24", "15.25", "15.26", "15.27", "15.28", "15.29", "15.30",
-        "15.31", "15.32", "15.33", "15.34", "15.35", "15.36", "15.37", "15.38", "15.39", "15.40",
-        "15.41", "15.42",
-        "16.1", "16.2", "16.3", "16.4", "16.5", "16.6", "16.7", "16.8", "16.9", "16.10",
-        "16.11", "16.12", "16.13", "16.14",
-        "17.1", "17.2", "17.3", "17.4", "17.5", "17.6", "17.7", "17.8", "17.9", "17.10",
-        "17.11", "17.12", "17.13", "17.14", "17.15", "17.16", "17.17", "17.18", "17.19", "17.20",
-        "17.21", "17.22", "17.23", "17.24", "17.25", "17.26",
-        "18.1", "18.2", "18.3", "18.4", "18.5", "18.6", "18.7", "18.8", "18.9", "18.10",
-        "18.11",
-        "19.1", "19.2", "19.3", "19.4", "19.5", "19.6", "19.7", "19.8", "19.9", "19.10",
-        "19.11", "19.12", "19.13", "19.14", "19.15", "19.16", "19.17", "19.18", "19.19", "19.20",
-        "19.21", "19.22", "19.23", "19.24", "19.25",
-        "20.1", "20.2", "20.3"
+        '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10',
+        '1.11', '1.12', '1.13', '1.14', '1.15', '1.16',
+        '2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '2.9', '2.10',
+        '2.11', '2.12', '2.13', '2.14', '2.15', '2.16', '2.17', '2.18', '2.19', '2.20',
+        '2.21', '2.22', '2.23', '2.24',
+        '3.1', '3.2', '3.3', '3.4', '3.5', '3.6', '3.7', '3.8', '3.9', '3.10',
+        '3.11', '3.12', '3.13', '3.14', '3.15', '3.16', '3.17', '3.18', '3.19', '3.20',
+        '3.21', '3.22', '3.23', '3.24', '3.25', '3.26',
+        '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '4.8', '4.9', '4.10',
+        '4.11', '4.12', '4.13', '4.14', '4.15', '4.16', '4.17', '4.18', '4.19', '4.20',
+        '4.21', '4.22', '4.23', '4.24', '4.25', '4.26',
+        '5.1', '5.2', '5.3', '5.4', '5.5', '5.6', '5.7', '5.8', '5.9', '5.10',
+        '5.11', '5.12', '5.13', '5.14', '5.15', '5.16', '5.17', '5.18', '5.19', '5.20',
+        '5.21', '5.22', '5.23', '5.24', '5.25', '5.26', '5.27', '5.28',
+        '6.1', '6.2', '6.3', '6.4', '6.5', '6.6', '6.7', '6.8', '6.9', '6.10',
+        '6.11', '6.12', '6.13', '6.14', '6.15', '6.16', '6.17', '6.18', '6.19', '6.20',
+        '6.21', '6.22', '6.23', '6.24', '6.25', '6.26', '6.27', '6.28', '6.29', '6.30',
+        '7.1', '7.2', '7.3', '7.4', '7.5', '7.6', '7.7', '7.8', '7.9', '7.10',
+        '7.11', '7.12', '7.13', '7.14', '7.15', '7.16', '7.17', '7.18', '7.19', '7.20',
+        '7.21', '7.22', '7.23', '7.24', '7.25', '7.26', '7.27', '7.28', '7.29', '7.30',
+        '7.31', '7.32', '7.33', '7.34', '7.35', '7.36', '7.37', '7.38',
+        '8.1', '8.2', '8.3', '8.4', '8.5', '8.6', '8.7', '8.8', '8.9', '8.10',
+        '8.11', '8.12', '8.13', '8.14', '8.15', '8.16', '8.17', '8.18', '8.19', '8.20',
+        '8.21',
+        '9.1', '9.2', '9.3', '9.4', '9.5', '9.6', '9.7', '9.8', '9.9', '9.10',
+        '9.11', '9.12', '9.13', '9.14', '9.15', '9.16', '9.17', '9.18', '9.19', '9.20',
+        '9.21', '9.22', '9.23', '9.24', '9.25', '9.26', '9.27', '9.28', '9.29', '9.30',
+        '9.31',
+        '10.1', '10.2', '10.3', '10.4', '10.5', '10.6', '10.7', '10.8', '10.9', '10.10',
+        '10.11', '10.12', '10.13', '10.14', '10.15', '10.16', '10.17', '10.18', '10.19', '10.20',
+        '10.21', '10.22', '10.23', '10.24', '10.25', '10.26', '10.27',
+        '11.1', '11.2', '11.3', '11.4', '11.5', '11.6', '11.7', '11.8', '11.9', '11.10',
+        '11.11', '11.12', '11.13', '11.14', '11.15', '11.16', '11.17', '11.18', '11.19', '11.20',
+        '11.21', '11.22', '11.23', '11.24', '11.25', '11.26',
+        '12.1', '12.2', '12.3', '12.4', '12.5', '12.6', '12.7', '12.8', '12.9', '12.10',
+        '12.11', '12.12', '12.13', '12.14', '12.15', '12.16', '12.17', '12.18', '12.19', '12.20',
+        '12.21', '12.22', '12.23', '12.24',
+        '13.1', '13.2', '13.3', '13.4', '13.5', '13.6', '13.7', '13.8', '13.9', '13.10',
+        '13.11', '13.12', '13.13', '13.14', '13.15', '13.16', '13.17', '13.18', '13.19', '13.20',
+        '13.21', '13.22', '13.23', '13.24', '13.25', '13.26', '13.27', '13.28', '13.29', '13.30',
+        '14.1', '14.2', '14.3', '14.4', '14.5', '14.6', '14.7', '14.8', '14.9', '14.10',
+        '14.11', '14.12', '14.13', '14.14', '14.15', '14.16', '14.17', '14.18', '14.19', '14.20',
+        '14.21', '14.22', '14.23', '14.24', '14.25', '14.26', '14.27', '14.28', '14.29', '14.30',
+        '14.31', '14.32', '14.33', '14.34', '14.35', '14.36', '14.37', '14.38', '14.39', '14.40',
+        '14.41', '14.42', '14.43', '14.44',
+        '15.1', '15.2', '15.3', '15.4', '15.5', '15.6', '15.7', '15.8', '15.9', '15.10',
+        '15.11', '15.12', '15.13', '15.14', '15.15', '15.16', '15.17', '15.18', '15.19', '15.20',
+        '15.21', '15.22', '15.23', '15.24', '15.25', '15.26', '15.27', '15.28', '15.29', '15.30',
+        '15.31', '15.32', '15.33', '15.34', '15.35', '15.36', '15.37', '15.38', '15.39', '15.40',
+        '15.41', '15.42',
+        '16.1', '16.2', '16.3', '16.4', '16.5', '16.6', '16.7', '16.8', '16.9', '16.10',
+        '16.11', '16.12', '16.13', '16.14',
+        '17.1', '17.2', '17.3', '17.4', '17.5', '17.6', '17.7', '17.8', '17.9', '17.10',
+        '17.11', '17.12', '17.13', '17.14', '17.15', '17.16', '17.17', '17.18', '17.19', '17.20',
+        '17.21', '17.22', '17.23', '17.24', '17.25', '17.26',
+        '18.1', '18.2', '18.3', '18.4', '18.5', '18.6', '18.7', '18.8', '18.9', '18.10',
+        '18.11',
+        '19.1', '19.2', '19.3', '19.4', '19.5', '19.6', '19.7', '19.8', '19.9', '19.10',
+        '19.11', '19.12', '19.13', '19.14', '19.15', '19.16', '19.17', '19.18', '19.19', '19.20',
+        '19.21', '19.22', '19.23', '19.24', '19.25',
+        '20.1', '20.2', '20.3'
     ];
     var randblobs = [];
 
     function shuffle(a) {
-        for (var i = a.length; i != 0; i--) {
+        for(var i = a.length; i != 0; i--) {
             var j = Math.floor(Math.random() * i);
             var t = a[i - 1];
             a[i - 1] = a[j];
@@ -368,12 +368,11 @@ img.characterimg {
     }
 
     function randomPick() {
-        var rbs = randblobs;
-        if (rbs.length == 0) {
-            rbs = blobs.slice();
-            shuffle(rbs);
+        if(randblobs.length === 0) {
+            randblobs = blobs.slice();
+            shuffle(randblobs);
         }
-        return rbs.pop();
+        return randblobs.pop();
     }
 
     function randomJump() {
@@ -412,17 +411,17 @@ img.characterimg {
     };
 
     function populateOutlineMenu() {
-        $("#outlinemenu").html(outlineMenu);
-        $("#outlinemenu span.lyoutlinemenuchevron").click(populateOutlineSubmenu);
+        $('#outlinemenu').html(outlineMenu);
+        $('#outlinemenu span.lyoutlinemenuchevron').click(populateOutlineSubmenu);
     }
 
     function populateOutlineSubmenu() {
-        var menu = $("#outlinemenu");
-        var id = $(this).parent().attr("href").substring(1);
+        var menu = $('#outlinemenu');
+        var id = $(this).parent().attr('href').substring(1);
         menu.html(id2OutlineSubmenu[id]);
         menu.scrollTop(0);
 
-        $("#outlinemenu span.lyoutlinemenuchevron").click(function() {
+        $('#outlinemenu span.lyoutlinemenuchevron').click(function() {
             populateOutlineMenu();
             return false;
         });
@@ -430,48 +429,48 @@ img.characterimg {
     }
 
     // Toggle blob tags.
-    var showClass = "glyphicon-ok";
-    var hideClass = "glyphicon-remove";
+    var showClass = 'glyphicon-ok';
+    var hideClass = 'glyphicon-remove';
 
     function toggleBlobTags() {
         var icon = $('#toggleblobtags > span.glyphicon');
-        if (!icon) {
-            console.log("Fail to find icon in toggleBlobTags()");
+        if(!icon) {
+            console.log('Fail to find icon in toggleBlobTags()');
             return;
         }
         var shown = icon.hasClass(showClass);
-        if (!shown && !icon.hasClass(hideClass)) {
-            console.log("Malformed icon in toggleBlobTags()");
+        if(!shown && !icon.hasClass(hideClass)) {
+            console.log('Malformed icon in toggleBlobTags()');
             return;
         }
         icon.removeClass(shown ? showClass : hideClass);
         icon.addClass(shown ? hideClass : showClass);
-        $("div.lyblobtag").each(function() {
+        $('div.lyblobtag').each(function() {
             shown ? $(this).hide() : $(this).show();
         });
     }
 
     // Nav-history (for blobs only).
-    var NAV_HISTORY_SIZE = 6;  // including the Clear button
-    var NAV_HISTORY_KEY = "navhistory";
+    var NAV_HISTORY_SIZE = 6; // including the Clear button
+    var NAV_HISTORY_KEY = 'navhistory';
 
     function updateNavHistory(event) {
         var clicked = event.target;
-        var blob = $(clicked).closest("div.lyblob");
-        if (blob.length != 1) return;  // not from a blob
+        var blob = $(clicked).closest('div.lyblob');
+        if(blob.length != 1) return; // not from a blob
 
-        var bid = blob.prev("a").attr("id");
+        var bid = blob.prev('a').attr('id');
         var item = '<li><a href="#' + bid + '">' + bid + '</a></li>';
-        var menu = $("#historymenu");
+        var menu = $('#historymenu');
         var latest = $('li', menu)[0];
-        if (item == '<li>' + latest.innerHTML + '</li>') return;  // duplicate
-        if ($("li", menu).length == NAV_HISTORY_SIZE) {
-            $("li:nth-child(" + (NAV_HISTORY_SIZE - 1) + ")", menu).remove();
+        if(item === '<li>' + latest.innerHTML + '</li>') return; // duplicate
+        if($('li', menu).length === NAV_HISTORY_SIZE) {
+            $('li:nth-child(' + (NAV_HISTORY_SIZE - 1) + ')', menu).remove();
         }
         menu.prepend(item);
 
-        if (localStorage) {
-            var bids = $("li > a", menu).map(function() {
+        if(localStorage) {
+            var bids = $('li > a', menu).map(function() {
                 return $(this).text();
             }).slice(0, -1).get();
             localStorage.setItem(NAV_HISTORY_KEY, JSON.stringify(bids));
@@ -479,12 +478,12 @@ img.characterimg {
     }
 
     function populateNavHistoryMenu() {
-        if (localStorage) {
-            var menu = $("#historymenu");
+        if(localStorage) {
+            var menu = $('#historymenu');
             var bids = JSON.parse(localStorage.getItem(NAV_HISTORY_KEY));
             if(bids != null) {
-                $.each(bids.reverse(), function(_, bid) {
-                    var item = '<li><a href="#' + bid + '">' + bid + '</a></li>';
+                $.each(bids.reverse(), function() {
+                    var item = '<li><a href="#' + this + '">' + this + '</a></li>';
                     menu.prepend(item);
                 });
             }
@@ -493,27 +492,28 @@ img.characterimg {
 
     // onload.
     $(function() {
+        // Outline menu.
         populateOutlineMenu();
-        populateNavHistoryMenu();
 
         // Nav history menu.
-        $("#alllyblobs").on("click", "a[href^='#']", updateNavHistory);
+        populateNavHistoryMenu();
 
-        $("#clearnavhistory").click(function() {
-            $("#historymenu > li:not(:last)").remove();
-            if (localStorage) {
+        $('#alllyblobs').on('click', "a[href^='#']", updateNavHistory);
+
+        $('#clearnavhistory').click(function() {
+            $('#historymenu > li:not(:last)').remove();
+            if(localStorage) {
                 localStorage.removeItem(NAV_HISTORY_KEY);
             }
         });
 
         // Random jump button.
-        $("#navrandomjump").click(randomJump);
+        $('#navrandomjump').click(randomJump);
 
         // Settings menu.
-        $("#toggleblobtags").click(toggleBlobTags);
+        $('#toggleblobtags').click(toggleBlobTags);
     });
-})();
-</script>
+})();</script>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top lynavbar" role="navigation"><div class="container-fluid">
@@ -571,7 +571,7 @@ img.characterimg {
 <p>这句话讲全了是：人不知我，而我不愠。文言文中，尤其是较古的篇章，常会省略、变换主语或宾语，需要读者根据上下文自行补全。适应性练习：<a href="#2.9" class="lyref">2.9</a> <a href="#6.5" class="lyref">6.5</a> <a href="#10.3" class="lyref">10.3</a> <a href="#13.1" class="lyref">13.1</a> </p>
 </li>
 <li>
-<p><a id="junzi"></a><span class="lyterm">君子</span>：道德高尚的人，与“小人”相对。在古汉语中，这两个词含有强烈的褒贬，成为善与恶、受尊崇与被唾弃的通用代称，类似于现代口语的好人、坏蛋。孔子所认可的君子，具有丰富的内涵，需要通过后文不断加深理解。这里是说，“人不知而不愠”属于君子之风，而非等同于君子，可以对照后面<a href="#ren2">仁</a>的解释。<span class="lyseealso"><span>【参】</span><span><a href="#15.18" class="lyref">15.18</a> 。与<a href="#xian2">贤人</a>相比，君子不特别强调才能出众，但也应当孜孜进修。《礼记·曲礼上》：<span class="lyq">博闻强<a href="#zhi4c">识</a>而让，敦善行而不怠，谓之君子。</span>（敦：勤勉。）</span></span></p>
+<p><a id="junzi"></a><span class="lyterm">君子</span>：道德高尚的人，与“小人”相对。在古汉语中，这两个词含有强烈的褒贬，成为善与恶、受尊崇与被唾弃的通用代称，类似于现代口语的好人、坏蛋。孔子所认可的君子，具有丰富的内涵，需要通过后文不断加深理解。这里是说，“人不知而不愠”属于君子之风，而非等同于君子，可以对照后面<a href="#ren2">仁</a>的解释。与<a href="#xian2">贤人</a>相比，君子不特别强调才能出众，但也应当孜孜进修。<span class="lyseealso"><span>【参】</span><span>《礼记·曲礼上》：<span class="lyq">博闻强<a href="#zhi4c">识</a>而让，敦善行而不怠，谓之君子。</span>（敦：勤勉。）</span></span></p>
 <p><a id="daren"></a>“君子”最早见于《<a href="#shangshu">尚书</a>》的《虞夏书·大禹谟》（伪）、《周书·酒诰》等篇，用来称呼<a href="#qingdafushi">大夫</a>及以上的贵族官员，暗含对他们地位高、入<a href="#wenhuaxiayi">官学</a>、有文化的赞美。字面上看，“<a href="#jun1">君</a>之子”出身高贵，天生是要成为人上人的。后来，君子就成为有官职或地位高者的通称，相当于古装剧里的大人、老爷、贵人。相对的也叫小人，或称<a href="#yeren">野人</a>，也就是<a href="#shu4b">庶民</a>，平民百姓。这个用法并没有品性上的褒贬，只表达阶层高低、地位主从的实际情况。不少古画，比如明代的<a href="http://www.yupoo.com/photos/bluebeard/53885864/" class="lyurl" target="_blank">江舜夫官服图</a>，常会把仆从画得不成比例的小，从中可以体会君子、小人的这种含义。<span class="lyexample"><span>【例】</span><span><a href="#4.11" class="lyref">4.11</a> <span class="lyq">君子怀德，小人怀土。</span>《<a href="#shijing">诗经</a>·魏风·伐檀》：<span class="lyq">彼君子兮，不素餐兮！</span></span></span><span class="lyseealso"><span>【参】</span><span>清代刘宝楠《论语正义》：<span class="lyq">非有位而称君子者，以其人有道德，可任在位也。</span></span></span></p>
 <p><a id="junzizhilu"></a>不凭出身高低而论道德品行，是孔子那个时代赋予“君子”的新内涵。孔子创建的<a href="#wenhuaxiayi">私学</a>，开辟了平民通往君子之路。说、乐与君子并列，也说明<a href="#sidao">斯道</a>并不遥远乏味。</p>
 </li>
@@ -1072,7 +1072,7 @@ img.characterimg {
 <p>也许是受“攻”的影响，这个词后来有了强烈的对抗性，相当于歪门邪道。称别人为异端的，常隐含认为自己才算正统、真理。</p>
 </li>
 <li>
-<p><span class="lyterm">斯害<a href="#yeyi">也已</a></span>：这就有害了。<span class="lyterm">斯</span>：代词，用作判断句的主语，指代前句所述情况，这（就），这（是）。<span class="lyexample"><span>【例】</span><span><a href="#4.7" class="lyref">4.7</a> <span class="lyq">观过，斯知仁矣。</span></span></span><span class="lyseealso"><span>【参】</span><span>近代崔适《论语足征记》：<span class="lyq">《颜氏家训·省事篇》：“古人云多为少善，不如执一。……”多能乃圣人之事，常人而务多能，必至一无所能。……多为少善者，攻异端之害也。</span></span></span></p>
+<p><span class="lyterm">斯害<a href="#yeyi">也已</a></span>：这就有害了。<span class="lyterm">斯</span>：代词，用作判断句的主语，指代前句所述情况，这（就），这（是）。<span class="lyexample"><span>【例】</span><span><a href="#4.7" class="lyref">4.7</a> <span class="lyq">观过，斯知仁矣。</span></span></span><span class="lyseealso"><span>【参】</span><span>近代崔适《论语足征记》：<span class="lyq">北齐颜之推《颜氏家训·省事篇》：“古人云多为少善，不如执一。……”多能乃圣人之事，常人而务多能，必至一无所能。……多为少善者，攻异端之害也。</span></span></span></p>
 <p>也有认为这里“已”是动词，停止，例如 <a href="#17.22" class="lyref">17.22</a> <span class="lyq">为之犹贤乎已</span>，这样句意就反过来了。《论语》包含16处“也已”，仅 <a href="#17.5" class="lyref">17.5</a> <span class="lyq">末之也已</span>用于句中表示让步，另外14处都用于句末表示判断，和本章句式相同的有 <a href="#9.23" class="lyref">9.23</a> <span class="lyq">斯亦不足畏也已</span>、<a href="#17.26" class="lyref">17.26</a> <span class="lyq">其终也已</span>，故不采信。</p>
 </li>
 </ul></div>
@@ -1113,7 +1113,10 @@ img.characterimg {
 <p><a href="#aigong">哀公</a>问曰：“何为则民服？”</p>
 <p>孔子对曰：“举直错诸枉，则民服；举枉错诸直，则民不服。”</p>
 </div>
-<div class="lyblobannotation"><ul class="lyblobitemize"><li><p><span class="lyterm">举直错诸枉</span>：把正直君子安排在比邪曲小人高的职位上。<a id="ju3"></a><span class="lyterm">举</span>：选用，推荐。<a id="cuo4"></a><span class="lyterm">错</span>：通“措”，放置，安放。<span class="lyterm">枉</span>：弯曲，不直。<span class="lyexample"><span>【例】</span><span><a href="#18.2" class="lyref">18.2</a> <span class="lyq">枉道而事人，何必去父母之邦？</span></span></span><span class="lyseealso"><span>【参】</span><span>《韩诗外传》第4卷第4章强调了小人在位的危害：<span class="lyq">《周书》曰：“无为虎傅翼，将飞入<a href="#yi4c">邑</a>，择人而食。”夫置不肖之人于位，是为虎傅翼也，不亦<a href="#dai4">殆</a>乎？</span>（<a id="fu4a"></a>傅：附，加。）</span></span></p></li></ul></div>
+<div class="lyblobannotation"><ul class="lyblobitemize"><li>
+<p><span class="lyterm">举直错诸枉</span>：把正直君子安排在比邪曲小人高的职位上。<a id="ju3"></a><span class="lyterm">举</span>：选用，推荐。<a id="cuo4"></a><span class="lyterm">错</span>：通“措”，放置，安放。<span class="lyterm">枉</span>：弯曲，不直。<span class="lyexample"><span>【例】</span><span><a href="#18.2" class="lyref">18.2</a> <span class="lyq">枉道而事人，何必去父母之邦？</span></span></span></p>
+<p><span class="lyseealso"><span>【参】</span><span>《三国志·蜀书·先主备》裴松之注引刘备遗诏敕后主刘禅：<span class="lyq">惟<a href="#xian2">贤</a>惟<a href="#de2">德</a>，能服于人。</span>《韩诗外传》第4卷第4章强调了小人在位的危害：<span class="lyq">《周书》曰：“无为虎傅翼，将飞入<a href="#yi4c">邑</a>，择人而食。”夫置不肖之人于位，是为虎傅翼也，不亦<a href="#dai4">殆</a>乎？</span>（<a id="fu4a"></a>傅：附，加。）</span></span></p>
+</li></ul></div>
 </div>
 <a id="2.20"></a><div class="lyblob">
 <div class="lyblobtag"><a href="ly#2.20">2.20</a></div>
@@ -2074,7 +2077,7 @@ img.characterimg {
 <div class="lyblobannotation"><ul class="lyblobitemize">
 <li><p><a id="zugong"></a><span class="lyterm">足恭</span>：指过分恭顺，即谄媚巴结。</p></li>
 <li><p><span class="lyterm">左丘明</span>：春秋末期鲁国史官，与孔子同时稍晚，生平不详。据《汉书·司马迁传》，他是《左传》的作者、《国语》的编纂者。按司马迁《报任安书》的说法，他在编纂《国语》时已经失明了。据《汉书·刘歆传》，<span class="lyq">歆以为左丘明好恶与圣人同，亲见夫子</span>，也许是根据本章的附会。</p></li>
-<li><p><a id="chenghu"></a><span class="lyterm">丘</span>：孔子的自称。古代言谈中自称己名，表示谦逊。父对子、师对徒，也常直呼其名。但直称长辈或平辈的名是不礼貌的，至少很不正式（平辈的情况），正式应该称对方的字（<span class="lykeyword">表字</span>，常与名的意义相关）。唐宋起又流行用号（<span class="lykeyword">别号</span>），可以有不止一个，可以自拟或受赠，较为风雅。注意观察《论语》中不同关系、不同环境的称呼，容易理解礼仪上的区别。<span class="lyexample"><span>【例】</span><span>诸葛亮《前出师表》：<span class="lyq">臣亮言：先帝创业未半而中道<a href="#hong1">崩</a>殂……</span>（殂（<span class="lypinyin">cú</span>）：死。）</span></span><span class="lyseealso"><span>【参】</span><span>《礼记·檀弓上》：<span class="lyq">幼名，冠字，五十以伯仲，死谥，周道也。</span>北齐颜之推《颜氏家训·风操》：<span class="lyq">古者，名以正体，字以表德，名终则讳之，字乃可以为孙氏。</span></span></span></p></li>
+<li><p><a id="chenghu"></a><span class="lyterm">丘</span>：孔子的自称。古代言谈中自称己名，表示谦逊。父对子、师对徒，也常直呼其名。但直称长辈或平辈的名是不礼貌的，至少很不正式（平辈的情况），正式应该称对方的字（<span class="lykeyword">表字</span>，常与名的意义相关）。唐宋起又流行用号（<span class="lykeyword">别号</span>），可以有不止一个，可以自拟或受赠，较为风雅。注意观察《论语》中不同关系、不同环境的称呼，容易理解礼仪上的区别。<span class="lyexample"><span>【例】</span><span>诸葛亮《前出师表》：<span class="lyq">臣亮言：先帝创业未半而中道<a href="#hong1">崩</a>殂……</span>（殂（<span class="lypinyin">cú</span>）：死。）</span></span><span class="lyseealso"><span>【参】</span><span>《礼记·檀弓上》：<span class="lyq">幼名，冠字，五十以伯仲，死谥，周道也。</span>《颜氏家训·风操》：<span class="lyq">古者，名以正体，字以表德，名终则讳之，字乃可以为孙氏。</span></span></span></p></li>
 </ul></div>
 </div>
 <a id="5.26"></a><div class="lyblob">
@@ -3529,7 +3532,7 @@ img.characterimg {
 <p><span class="lyterm">不时</span>：时间不适宜，说的是瓜果蔬菜未熟、过老、不当令等等。</p>
 <p><span class="lyterm">割不正</span>：指牲肉的分割不合规范。《仪礼·特牲馈食礼》、《仪礼·少牢馈食礼》记载了祭祀所用的牲体应该怎样分解，各部分如何截割、烹煮、使用等方面。</p>
 </li>
-<li><p><span class="lyterm">肉虽多，不使<a href="#sheng4b">胜</a>食气</span>：就算供应很多肉，也不要吃过量，使肥甘厚味压倒谷菜之气。<span class="lyseealso"><span>【参】</span><span>清代徐文弼《寿世传真·修养宜饮食调理》：<span class="lyq">谷粟<a href="#shu1">菽</a>麦，自然冲和之味，有益人补阴之功。……若人之所为者，皆烹饪偏厚之味，有致疾伤命之虞。……茹淡者安，啖厚者危。……厚不如薄，多不如少，虑患而谨节之，畏危而坚忍之，举匕箸如<a href="#jing3">儆</a>戈矛，不与肉食者同其陷溺，宁负我生之腹，不负生我之天，是亦卫生之一道也。</span>（虞：忧。茹：吃。匕：相当于汤匙。箸（<span class="lypinyin">zhù</span>）：筷子。卫生：养生。）</span></span></p></li>
+<li><p><span class="lyterm">肉虽多，不使<a href="#sheng4b">胜</a>食气</span>：就算供应很多肉，也不要吃过量，使肥甘厚味压倒谷菜之气。<span class="lyseealso"><span>【参】</span><span>清代徐文弼《寿世传真·修养宜饮食调理》：<span class="lyq">谷粟<a href="#shu1">菽</a>麦，自然冲和之味，有益人补阴之功。……若人之所为者，皆烹饪偏厚之味，有致疾伤命之虞。……茹淡者安，啖厚者危。……厚不如薄，多不如少，虑患而谨节之，畏危而坚忍之，举匕箸如<a href="#jing3">儆</a>戈矛，不与肉食者同其陷溺，宁负我生之腹，不负生我之天，是亦卫生之一道也。</span>（虞：忧。茹、<a id="dan4"></a>啖（<span class="lypinyin">dàn</span>）：吃。匕：相当于汤匙。箸（<span class="lypinyin">zhù</span>）：筷子。卫生：养生。）</span></span></p></li>
 <li><p><span class="lyterm">不及乱</span>：指不要喝到颠三倒四的即可。</p></li>
 <li><p><span class="lyterm"><a href="#gu1">沽</a>酒市脯</span>（<span class="lypinyin">fǔ</span>）：（不是自家酿的，而是从外面）买来的酒，从外面买来的（质量可疑的）肉。它们都不应用于祭祀。<span class="lyterm">脯</span>：干肉。<a id="shi4g"></a><span class="lyterm">市</span>：买。</p></li>
 <li><p><span class="lyterm">不撤姜食，不多食</span>：（吃完饭后，）只留着姜碟不撤去（以供随时食用），但也不多吃。姜也有刺激性，但清气提神，故不算入<a href="#hun1">荤</a>。<span class="lyseealso"><span>【参】</span><span>清代汪昂《本草备要·生姜》：<span class="lyq">辛温，行阳分而祛寒发表，宣肺气而解郁调中，畅胃口而开痰下食。……久食兼酒，则患目发痔（积热使然）。</span></span></span></p></li>
@@ -3946,7 +3949,7 @@ img.characterimg {
 <li><p><span class="lyterm">闻斯行诸？</span>：听到了（一个道理）就应该（赶紧）去做吗？</p></li>
 <li><p><span class="lyterm">有父兄在</span>：意思是应该先请示父兄的意见，多考虑他们的需要和感受。</p></li>
 <li><p><span class="lyterm">退</span>：指畏缩，做事容易打退堂鼓。<span class="lyseealso"><span>【参】</span><span>冉求以<a href="#yi4k">艺</a>著称，会得多了，是不是就容易心事重、顾虑多、<span class="lyq">巧者劳而知者忧</span>（《庄子·列御寇》）呢？能反映冉求这方面性格的例子如：<a href="#6.12" class="lyref">6.12</a> <span class="lyq">冉求曰：“非不说子之道，力不足也。”</span><a href="#3.6" class="lyref">3.6</a> <span class="lyq">子谓冉有曰：“女弗能救与？”对曰：“不能。”</span><a href="#13.14" class="lyref">13.14</a> <span class="lyq">子曰：“何晏也？”对曰：“有政。”</span></span></span></p></li>
-<li><p><span class="lyterm">兼人</span>：一人抵多人，这里是指子路勇于进取，果敢好胜。另外也可以形容勇力过人。<span class="lyexample"><span>【例】</span><span>《汉书·韩信传》：<span class="lyq">受辱于跨下，无兼人之勇，不足畏也。</span>（跨：通“胯”。）</span></span><span class="lyseealso"><span>【参】</span><span>孔子曾说子路 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">好勇过我</span>、<a href="#6.8" class="lyref">6.8</a> <span class="lyq">由也果</span>、<a href="#11.18" class="lyref">11.18</a> <span class="lyq">由也喭</span>。能反映子路这方面性格的例子很多，比如 <a href="#12.12" class="lyref">12.12</a> <span class="lyq">片言可以折狱</span>、<span class="lyq">无宿诺</span>，<a href="#11.26" class="lyref">11.26</a> <span class="lyq">率尔而对</span>，问孔子 <a href="#17.23" class="lyref">17.23</a> <span class="lyq">君子尚勇乎？</span><a href="#7.11" class="lyref">7.11</a> <span class="lyq">子行三军，则谁与？</span>也包括 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">闻之喜</span>、<a href="#15.2" class="lyref">15.2</a> <span class="lyq">子路愠</span>、<a href="#6.28" class="lyref">6.28</a> <a href="#17.5" class="lyref">17.5</a> <span class="lyq">子路不说</span>，以及说孔子 <a href="#13.3" class="lyref">13.3</a> <span class="lyq">子之迂也</span>等等。</span></span></p></li>
+<li><p><span class="lyterm">兼人</span>：一人抵多人，这里是指子路勇于进取，果敢好胜。<span class="lyexample"><span>【例】</span><span>《汉书·韩信传》：<span class="lyq">受辱于跨下，无兼人之勇，不足畏也。</span>（指勇力过人。跨：通“胯”。）《三国志·魏书·典韦传》说曹操的猛将典韦<span class="lyq">好酒食，饮<a href="#dan4">啖</a>兼人</span>，就是饭量很大。</span></span><span class="lyseealso"><span>【参】</span><span>孔子曾说子路 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">好勇过我</span>、<a href="#6.8" class="lyref">6.8</a> <span class="lyq">由也果</span>、<a href="#11.18" class="lyref">11.18</a> <span class="lyq">由也喭</span>。能反映子路这方面性格的例子很多，比如 <a href="#12.12" class="lyref">12.12</a> <span class="lyq">片言可以折狱</span>、<span class="lyq">无宿诺</span>，<a href="#11.26" class="lyref">11.26</a> <span class="lyq">率尔而对</span>，问孔子 <a href="#17.23" class="lyref">17.23</a> <span class="lyq">君子尚勇乎？</span><a href="#7.11" class="lyref">7.11</a> <span class="lyq">子行三军，则谁与？</span>也包括 <a href="#5.7" class="lyref">5.7</a> <span class="lyq">闻之喜</span>、<a href="#15.2" class="lyref">15.2</a> <span class="lyq">子路愠</span>、<a href="#6.28" class="lyref">6.28</a> <a href="#17.5" class="lyref">17.5</a> <span class="lyq">子路不说</span>，以及说老师 <a href="#13.3" class="lyref">13.3</a> <span class="lyq">子之迂也</span>等等。</span></span></p></li>
 </ul></div>
 </div>
 <a id="11.23"></a><div class="lyblob">
@@ -4703,7 +4706,7 @@ img.characterimg {
 <li><p><span class="lyterm">彼哉，彼哉！</span>：他啊，他啊！表示无足称道。</p></li>
 <li><p><span class="lyterm">人也</span>：前面似乎缺了一个字来评价管仲，只好理解成“人才啊”。也有根据 <a href="#14.16" class="lyref">14.16</a> <a href="#14.17" class="lyref">14.17</a>  孔子对管仲的称赞，认为“人”通“仁”，但结合下一句就显勉强。可以参考孔子对于<a href="#zigao">子羔</a>的评价。</p></li>
 <li><p><span class="lyterm">伯氏</span>：齐国大夫伯偃，<span class="lyterm">骈（<span class="lypinyin">pián</span>）邑</span>是他的<a href="#jia1">封邑</a>，在今山东省潍坊市临朐（<span class="lypinyin">qú</span>）县。<span class="lyterm">三百</span>指300家百姓。后面的主语都是伯氏。</p></li>
-<li><p><span class="lyterm"><a href="#mo4a">没</a>齿</span>：至死，终身。<span class="lyterm">齿</span>：寿数，年龄。<span class="lyexample"><span>【例】</span><span>成语“没齿不忘”。</span></span><span class="lyterm">没齿无怨言</span>应是因为管仲裁处公正，令人心服，具体情况已不可考。<span class="lyseealso"><span>【参】</span><span>据《三国志·蜀书》廖立传、李严传，蜀国校尉廖立自负才名，妄议国士，督粮官李平（即李严）运粮不力，谎言推诿，都被诸葛亮削职为民。二人一直企望重获他的认可，可几年后诸葛亮病故，于是廖立<span class="lyq">垂泣叹曰：“吾终为<a href="#zuoren">左衽</a>矣！”</span>李平更是激愤发病而死。东晋习凿齿评价：<span class="lyq">昔管仲夺伯氏骈邑三百，没齿而无怨言，圣人以为难。诸葛亮之使廖立垂泣，李平致死，岂徒无怨言而已哉！夫水至平而邪者取法，镜至明而丑者无怒。水镜之所以能穷物而无怨者，以其无私也。……诸葛亮于是可谓能用刑矣！自秦汉以来，未之有也。</span></span></span></p></li>
+<li><p><span class="lyterm"><a href="#mo4a">没</a>齿</span>：至死，终身。<span class="lyterm">齿</span>：寿数，年龄。<span class="lyexample"><span>【例】</span><span>成语“没齿不忘”。</span></span><span class="lyterm">没齿无怨言</span>应是因为管仲裁处公正，令人心服，具体情况已不可考。<span class="lyseealso"><span>【参】</span><span>据《三国志·蜀书》廖立传、李严传，蜀国校尉廖立自负才名，妄议国士，督粮官李平（即李严）运粮不力，谎言推诿，都被诸葛亮削职为民。二人一直企望重获认可，可几年后诸葛亮病故，于是廖立<span class="lyq">垂泣叹曰：“吾终为<a href="#zuoren">左衽</a>矣！”</span>李平更是激愤发病而死。东晋习凿齿评价：<span class="lyq">昔管仲夺伯氏骈邑三百，没齿而无怨言，圣人以为难。诸葛亮之使廖立垂泣，李平致死，岂徒无怨言而已哉！夫水至平而邪者取法，镜至明而丑者无怒。水镜之所以能穷物而无怨者，以其无私也。……诸葛亮于是可谓能用刑矣！自秦汉以来，未之有也。</span></span></span></p></li>
 </ul></div>
 </div>
 <a id="14.10"></a><div class="lyblob">
@@ -5658,8 +5661,8 @@ img.characterimg {
 <div class="lybloboriginaltext"><p>子曰：“唯上知与下愚不移。”</p></div>
 <div class="lyblobannotation">
 <ul class="lyblobitemize">
-<li><p><span class="lyterm">上知</span>：最智慧的人。<span class="lyterm">下愚</span>：最愚笨的人。<span class="lyseealso"><span>【参】</span><span><a href="#16.9" class="lyref">16.9</a> <span class="lyq">生而知之者，上也……困而不学，民斯为下矣。</span></span></span></p></li>
-<li><p><span class="lyterm">不移</span>：无法影响、改变。古注有认为应把本章与前一章合为一章。<span class="lyseealso"><span>【参】</span><span><a href="#6.21" class="lyref">6.21</a> <span class="lyq">中人以上，可以语上也；中人以下，不可以语上也。</span></span></span></p></li>
+<li><p><span class="lyterm">上知</span>：最智慧的人。<span class="lyterm">下愚</span>：最愚笨的人。<span class="lyseealso"><span>【参】</span><span><a href="#16.9" class="lyref">16.9</a> <span class="lyq">生而知之者，上也……困而不学，民斯为下矣。</span>《汉书·古今人表》的解释是：<span class="lyq">可与为善，不可与为恶，是谓上智。……可与为恶，不可与为善，是谓下愚。……可与为善，可与为恶，是谓中人。</span>并据此把当时见诸记载的1931位古人划分9等，从上上<a href="#sheng4">圣</a>人、上中<a href="#ren2">仁</a>人、上下<a href="#zhi4d">智</a>人，直到下下愚人。</span></span></p></li>
+<li><p><span class="lyterm">不移</span>：无法影响、改变。古注有认为应把本章与前一章合为一章。<span class="lyseealso"><span>【参】</span><span><a href="#6.21" class="lyref">6.21</a> <span class="lyq">中人以上，可以语上也；中人以下，不可以语上也。</span>颜之推《颜氏家训·教子》开篇说：<span class="lyq">上智不教而成，下愚虽教无益，中庸之人，不教不知也。</span>（中庸：平常。）其孙颜师古也在《汉书·古今人表》注中应和：<span class="lyq">上智不染于恶，下愚虽教无成。</span></span></span></p></li>
 </ul>
 <p><span class="lyseealso"><span>【参】</span><span>上智与下愚，理解为先天禀赋或后天表现皆通。如清代阮元《研经室集·性命古训》认为：<span class="lyq">愚也，非恶也，智者善，愚者亦善也。古人每言才性，即孟子所谓非才之罪也。……愚亦命之所有，下愚亦命之所有。</span>（“非才之罪”出自《孟子·告子上》。才：天性。）《论语注疏》说：<span class="lyq">上知不可使为恶，下愚不可使<a href="#qiang3">强</a>贤。</span>《四书集注》则引程颐语：<span class="lyq">所谓下愚有二焉：自暴自弃也。人苟以善自治，则无不可移，虽昏愚之至，皆可渐磨而进也。惟自暴者拒之以不信，自弃者绝之以不为，虽圣人与居，不能化而入也。……圣人以其自绝于善，谓之下愚。</span></span></span></p>
 </div>
@@ -6040,9 +6043,9 @@ img.characterimg {
 <li><p><span class="lyterm"><a href="#bi4c">辟</a>人之士</span>指四处寻访明君而不得的孔子，<span class="lyterm">辟世之士</span>指长沮、桀溺这样远离尘嚣的隐士。</p></li>
 <li><p><span class="lyterm">耰</span>（<span class="lypinyin">yōu</span>）：农具名，用来槌碎土块，平整田地，这里作动词，用耰整地。</p></li>
 <li><p><span class="lyterm">怃（<span class="lypinyin">wǔ</span>）然</span>：伤感失意的样子。</p></li>
-<li><p><span class="lyterm">鸟兽不可与同群，吾非斯人之徒与而谁与？</span>：（人）不能和鸟兽为伍，我不跟那些人在一起还能跟谁呢？<span class="lyterm">斯人之徒</span>：指世间人，也包括君主政客之流，与避世隐居的世外之人相对。宁愿生活在不完美的世界，也不否定自己作为社会人的价值、退回不问俗事的生活，反映了儒家积极入世的态度和慈悲仁爱的精神。这和佛教寻求解脱轮回，道教向往长生成仙，以及基督教、伊斯兰教宣扬的天堂，都有极大不同。</p></li>
+<li><p><span class="lyterm">鸟兽不可与同群，吾非斯人之徒与而谁与？</span>：（人）不能和鸟兽为伍，我不跟那些人在一起还能跟谁呢？<span class="lyterm">斯人之徒</span>：指世间人，也包括君主政客之流，与避世隐居的世外之人相对。宁愿生活在不完美的世界，也不否定自己作为社会人的价值、退回不问俗事的生活，反映了儒家积极入世的态度和慈悲仁爱的精神。这和佛教寻求解脱轮回之苦，道教向往长生成仙，以及基督教、伊斯兰教宣扬的天堂，都有极大不同。</p></li>
 <li><p><span class="lyterm">天下有道</span>：即天下若有道，是假设之辞，这也就没什么好改变的了。这个实现自我价值的信念，可以说是支持孔子四处奔波的力量。</p></li>
-<li><p><span class="lyterm">与易</span>：和（这些人）来改变，省略了“与”的宾语“斯人之徒”。孔子认为，和不完美的人合作，也能够实现伟大的理想。这是必须接受的现实，也是他爱人、相信人的一贯态度。更何况，<a href="#9.23" class="lyref">9.23</a> <span class="lyq">后生可畏，焉知来者之不如今也？</span></p></li>
+<li><p><span class="lyterm">与易</span>：和（这些人）来改变，省略了“与”的宾语“斯人之徒”。孔子认为，和不完美的人合作，也能够实现伟大的理想。这是必须接受的现实，也是他爱人、相信人的一贯态度。更何况 <a href="#9.23" class="lyref">9.23</a> <span class="lyq">后生可畏，焉知来者之不如今也？</span></p></li>
 </ul></div>
 </div>
 <a id="18.7"></a><div class="lyblob">

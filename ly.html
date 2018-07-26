@@ -20,8 +20,9 @@ body {
 h1.lybodychapter {
     background-color: #d9edf7;
     border-radius: 0.4em;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     padding: 0.5em;
     text-align: center;
 }
@@ -49,7 +50,6 @@ div.lyblob {
 div.lyblobtag {
     border: 2px solid #c0c0c0;
     border-radius: 0em 1em;
-    display: inline-block;
     padding: 0.5em;
     text-align: center;
     position: relative;
@@ -85,6 +85,12 @@ a:link {
 .lynavbar-anchor {
     color: #777;
     margin-top: 6px;
+}
+
+.lynavbar-searchbox {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: 10em;  /* works for iPhone 5/SE (320x568) */
 }
 
 #navoutline:focus, #navoutline:hover,
@@ -150,72 +156,74 @@ a:link {
 (function() {
     // Random jump.
     var blobs = [
-        "1.1", "1.2", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9", "1.10",
-        "1.11", "1.12", "1.13", "1.14", "1.15", "1.16",
-        "2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10",
-        "2.11", "2.12", "2.13", "2.14", "2.15", "2.16", "2.17", "2.18", "2.19", "2.20",
-        "2.21", "2.22", "2.23", "2.24",
-        "3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9", "3.10",
-        "3.11", "3.12", "3.13", "3.14", "3.15", "3.16", "3.17", "3.18", "3.19", "3.20",
-        "3.21", "3.22", "3.23", "3.24", "3.25", "3.26",
-        "4.1", "4.2", "4.3", "4.4", "4.5", "4.6", "4.7", "4.8", "4.9", "4.10",
-        "4.11", "4.12", "4.13", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "4.20",
-        "4.21", "4.22", "4.23", "4.24", "4.25", "4.26",
-        "5.1", "5.2", "5.3", "5.4", "5.5", "5.6", "5.7", "5.8", "5.9", "5.10",
-        "5.11", "5.12", "5.13", "5.14", "5.15", "5.16", "5.17", "5.18", "5.19", "5.20",
-        "5.21", "5.22", "5.23", "5.24", "5.25", "5.26", "5.27", "5.28",
-        "6.1", "6.2", "6.3", "6.4", "6.5", "6.6", "6.7", "6.8", "6.9", "6.10",
-        "6.11", "6.12", "6.13", "6.14", "6.15", "6.16", "6.17", "6.18", "6.19", "6.20",
-        "6.21", "6.22", "6.23", "6.24", "6.25", "6.26", "6.27", "6.28", "6.29", "6.30",
-        "7.1", "7.2", "7.3", "7.4", "7.5", "7.6", "7.7", "7.8", "7.9", "7.10",
-        "7.11", "7.12", "7.13", "7.14", "7.15", "7.16", "7.17", "7.18", "7.19", "7.20",
-        "7.21", "7.22", "7.23", "7.24", "7.25", "7.26", "7.27", "7.28", "7.29", "7.30",
-        "7.31", "7.32", "7.33", "7.34", "7.35", "7.36", "7.37", "7.38",
-        "8.1", "8.2", "8.3", "8.4", "8.5", "8.6", "8.7", "8.8", "8.9", "8.10",
-        "8.11", "8.12", "8.13", "8.14", "8.15", "8.16", "8.17", "8.18", "8.19", "8.20",
-        "8.21",
-        "9.1", "9.2", "9.3", "9.4", "9.5", "9.6", "9.7", "9.8", "9.9", "9.10",
-        "9.11", "9.12", "9.13", "9.14", "9.15", "9.16", "9.17", "9.18", "9.19", "9.20",
-        "9.21", "9.22", "9.23", "9.24", "9.25", "9.26", "9.27", "9.28", "9.29", "9.30",
-        "9.31",
-        "10.1", "10.2", "10.3", "10.4", "10.5", "10.6", "10.7", "10.8", "10.9", "10.10",
-        "10.11", "10.12", "10.13", "10.14", "10.15", "10.16", "10.17", "10.18", "10.19", "10.20",
-        "10.21", "10.22", "10.23", "10.24", "10.25", "10.26", "10.27",
-        "11.1", "11.2", "11.3", "11.4", "11.5", "11.6", "11.7", "11.8", "11.9", "11.10",
-        "11.11", "11.12", "11.13", "11.14", "11.15", "11.16", "11.17", "11.18", "11.19", "11.20",
-        "11.21", "11.22", "11.23", "11.24", "11.25", "11.26",
-        "12.1", "12.2", "12.3", "12.4", "12.5", "12.6", "12.7", "12.8", "12.9", "12.10",
-        "12.11", "12.12", "12.13", "12.14", "12.15", "12.16", "12.17", "12.18", "12.19", "12.20",
-        "12.21", "12.22", "12.23", "12.24",
-        "13.1", "13.2", "13.3", "13.4", "13.5", "13.6", "13.7", "13.8", "13.9", "13.10",
-        "13.11", "13.12", "13.13", "13.14", "13.15", "13.16", "13.17", "13.18", "13.19", "13.20",
-        "13.21", "13.22", "13.23", "13.24", "13.25", "13.26", "13.27", "13.28", "13.29", "13.30",
-        "14.1", "14.2", "14.3", "14.4", "14.5", "14.6", "14.7", "14.8", "14.9", "14.10",
-        "14.11", "14.12", "14.13", "14.14", "14.15", "14.16", "14.17", "14.18", "14.19", "14.20",
-        "14.21", "14.22", "14.23", "14.24", "14.25", "14.26", "14.27", "14.28", "14.29", "14.30",
-        "14.31", "14.32", "14.33", "14.34", "14.35", "14.36", "14.37", "14.38", "14.39", "14.40",
-        "14.41", "14.42", "14.43", "14.44",
-        "15.1", "15.2", "15.3", "15.4", "15.5", "15.6", "15.7", "15.8", "15.9", "15.10",
-        "15.11", "15.12", "15.13", "15.14", "15.15", "15.16", "15.17", "15.18", "15.19", "15.20",
-        "15.21", "15.22", "15.23", "15.24", "15.25", "15.26", "15.27", "15.28", "15.29", "15.30",
-        "15.31", "15.32", "15.33", "15.34", "15.35", "15.36", "15.37", "15.38", "15.39", "15.40",
-        "15.41", "15.42",
-        "16.1", "16.2", "16.3", "16.4", "16.5", "16.6", "16.7", "16.8", "16.9", "16.10",
-        "16.11", "16.12", "16.13", "16.14",
-        "17.1", "17.2", "17.3", "17.4", "17.5", "17.6", "17.7", "17.8", "17.9", "17.10",
-        "17.11", "17.12", "17.13", "17.14", "17.15", "17.16", "17.17", "17.18", "17.19", "17.20",
-        "17.21", "17.22", "17.23", "17.24", "17.25", "17.26",
-        "18.1", "18.2", "18.3", "18.4", "18.5", "18.6", "18.7", "18.8", "18.9", "18.10",
-        "18.11",
-        "19.1", "19.2", "19.3", "19.4", "19.5", "19.6", "19.7", "19.8", "19.9", "19.10",
-        "19.11", "19.12", "19.13", "19.14", "19.15", "19.16", "19.17", "19.18", "19.19", "19.20",
-        "19.21", "19.22", "19.23", "19.24", "19.25",
-        "20.1", "20.2", "20.3"
+        '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10',
+        '1.11', '1.12', '1.13', '1.14', '1.15', '1.16',
+        '2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '2.9', '2.10',
+        '2.11', '2.12', '2.13', '2.14', '2.15', '2.16', '2.17', '2.18', '2.19', '2.20',
+        '2.21', '2.22', '2.23', '2.24',
+        '3.1', '3.2', '3.3', '3.4', '3.5', '3.6', '3.7', '3.8', '3.9', '3.10',
+        '3.11', '3.12', '3.13', '3.14', '3.15', '3.16', '3.17', '3.18', '3.19', '3.20',
+        '3.21', '3.22', '3.23', '3.24', '3.25', '3.26',
+        '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '4.8', '4.9', '4.10',
+        '4.11', '4.12', '4.13', '4.14', '4.15', '4.16', '4.17', '4.18', '4.19', '4.20',
+        '4.21', '4.22', '4.23', '4.24', '4.25', '4.26',
+        '5.1', '5.2', '5.3', '5.4', '5.5', '5.6', '5.7', '5.8', '5.9', '5.10',
+        '5.11', '5.12', '5.13', '5.14', '5.15', '5.16', '5.17', '5.18', '5.19', '5.20',
+        '5.21', '5.22', '5.23', '5.24', '5.25', '5.26', '5.27', '5.28',
+        '6.1', '6.2', '6.3', '6.4', '6.5', '6.6', '6.7', '6.8', '6.9', '6.10',
+        '6.11', '6.12', '6.13', '6.14', '6.15', '6.16', '6.17', '6.18', '6.19', '6.20',
+        '6.21', '6.22', '6.23', '6.24', '6.25', '6.26', '6.27', '6.28', '6.29', '6.30',
+        '7.1', '7.2', '7.3', '7.4', '7.5', '7.6', '7.7', '7.8', '7.9', '7.10',
+        '7.11', '7.12', '7.13', '7.14', '7.15', '7.16', '7.17', '7.18', '7.19', '7.20',
+        '7.21', '7.22', '7.23', '7.24', '7.25', '7.26', '7.27', '7.28', '7.29', '7.30',
+        '7.31', '7.32', '7.33', '7.34', '7.35', '7.36', '7.37', '7.38',
+        '8.1', '8.2', '8.3', '8.4', '8.5', '8.6', '8.7', '8.8', '8.9', '8.10',
+        '8.11', '8.12', '8.13', '8.14', '8.15', '8.16', '8.17', '8.18', '8.19', '8.20',
+        '8.21',
+        '9.1', '9.2', '9.3', '9.4', '9.5', '9.6', '9.7', '9.8', '9.9', '9.10',
+        '9.11', '9.12', '9.13', '9.14', '9.15', '9.16', '9.17', '9.18', '9.19', '9.20',
+        '9.21', '9.22', '9.23', '9.24', '9.25', '9.26', '9.27', '9.28', '9.29', '9.30',
+        '9.31',
+        '10.1', '10.2', '10.3', '10.4', '10.5', '10.6', '10.7', '10.8', '10.9', '10.10',
+        '10.11', '10.12', '10.13', '10.14', '10.15', '10.16', '10.17', '10.18', '10.19', '10.20',
+        '10.21', '10.22', '10.23', '10.24', '10.25', '10.26', '10.27',
+        '11.1', '11.2', '11.3', '11.4', '11.5', '11.6', '11.7', '11.8', '11.9', '11.10',
+        '11.11', '11.12', '11.13', '11.14', '11.15', '11.16', '11.17', '11.18', '11.19', '11.20',
+        '11.21', '11.22', '11.23', '11.24', '11.25', '11.26',
+        '12.1', '12.2', '12.3', '12.4', '12.5', '12.6', '12.7', '12.8', '12.9', '12.10',
+        '12.11', '12.12', '12.13', '12.14', '12.15', '12.16', '12.17', '12.18', '12.19', '12.20',
+        '12.21', '12.22', '12.23', '12.24',
+        '13.1', '13.2', '13.3', '13.4', '13.5', '13.6', '13.7', '13.8', '13.9', '13.10',
+        '13.11', '13.12', '13.13', '13.14', '13.15', '13.16', '13.17', '13.18', '13.19', '13.20',
+        '13.21', '13.22', '13.23', '13.24', '13.25', '13.26', '13.27', '13.28', '13.29', '13.30',
+        '14.1', '14.2', '14.3', '14.4', '14.5', '14.6', '14.7', '14.8', '14.9', '14.10',
+        '14.11', '14.12', '14.13', '14.14', '14.15', '14.16', '14.17', '14.18', '14.19', '14.20',
+        '14.21', '14.22', '14.23', '14.24', '14.25', '14.26', '14.27', '14.28', '14.29', '14.30',
+        '14.31', '14.32', '14.33', '14.34', '14.35', '14.36', '14.37', '14.38', '14.39', '14.40',
+        '14.41', '14.42', '14.43', '14.44',
+        '15.1', '15.2', '15.3', '15.4', '15.5', '15.6', '15.7', '15.8', '15.9', '15.10',
+        '15.11', '15.12', '15.13', '15.14', '15.15', '15.16', '15.17', '15.18', '15.19', '15.20',
+        '15.21', '15.22', '15.23', '15.24', '15.25', '15.26', '15.27', '15.28', '15.29', '15.30',
+        '15.31', '15.32', '15.33', '15.34', '15.35', '15.36', '15.37', '15.38', '15.39', '15.40',
+        '15.41', '15.42',
+        '16.1', '16.2', '16.3', '16.4', '16.5', '16.6', '16.7', '16.8', '16.9', '16.10',
+        '16.11', '16.12', '16.13', '16.14',
+        '17.1', '17.2', '17.3', '17.4', '17.5', '17.6', '17.7', '17.8', '17.9', '17.10',
+        '17.11', '17.12', '17.13', '17.14', '17.15', '17.16', '17.17', '17.18', '17.19', '17.20',
+        '17.21', '17.22', '17.23', '17.24', '17.25', '17.26',
+        '18.1', '18.2', '18.3', '18.4', '18.5', '18.6', '18.7', '18.8', '18.9', '18.10',
+        '18.11',
+        '19.1', '19.2', '19.3', '19.4', '19.5', '19.6', '19.7', '19.8', '19.9', '19.10',
+        '19.11', '19.12', '19.13', '19.14', '19.15', '19.16', '19.17', '19.18', '19.19', '19.20',
+        '19.21', '19.22', '19.23', '19.24', '19.25',
+        '20.1', '20.2', '20.3'
     ];
     var randblobs = [];
+    var randblobsFiltered = [];
+    var randblobsFilteredDirty = false;
 
     function shuffle(a) {
-        for (var i = a.length; i != 0; i--) {
+        for(var i = a.length; i != 0; i--) {
             var j = Math.floor(Math.random() * i);
             var t = a[i - 1];
             a[i - 1] = a[j];
@@ -224,16 +232,28 @@ a:link {
     }
 
     function randomPick() {
-        var rbs = randblobs;
-        if (rbs.length == 0) {
-            rbs = blobs.slice();
-            shuffle(rbs);
+        var visibles = $('div.lyblob:visible');
+        if(visibles.length <= 1) {  // no need to pick
+            return null;
+        } else if(visibles.length === blobs.length) {  // full
+            if(randblobs.length === 0) {
+                randblobs = blobs.slice();
+                shuffle(randblobs);
+            }
+            return randblobs.pop();
+        } else {  // filtered
+            if(randblobsFilteredDirty || randblobsFiltered.length === 0) {
+                randblobsFiltered = $('div.lyblobtag', visibles).map(function() { return $(this).text(); }).toArray();
+                shuffle(randblobsFiltered);
+                randblobsFilteredDirty = false;
+            }
+            return randblobsFiltered.pop();
         }
-        return rbs.pop();
     }
 
     function randomJump() {
-        location.hash = randomPick();
+        var hash = randomPick();
+        if(hash !== null) location.hash = hash;
     }
 
     // Outline menu.
@@ -263,17 +283,17 @@ a:link {
     };
 
     function populateOutlineMenu() {
-        $("#outlinemenu").html(outlineMenu);
-        $("#outlinemenu span.lyoutlinemenuchevron").click(populateOutlineSubmenu);
+        $('#outlinemenu').html(outlineMenu);
+        $('#outlinemenu span.lyoutlinemenuchevron').click(populateOutlineSubmenu);
     }
 
     function populateOutlineSubmenu() {
-        var menu = $("#outlinemenu");
-        var id = $(this).parent().attr("href").substring(1);
+        var menu = $('#outlinemenu');
+        var id = $(this).parent().attr('href').substring(1);
         menu.html(id2OutlineSubmenu[id]);
         menu.scrollTop(0);
 
-        $("#outlinemenu span.lyoutlinemenuchevron").click(function() {
+        $('#outlinemenu span.lyoutlinemenuchevron').click(function() {
             populateOutlineMenu();
             return false;
         });
@@ -281,47 +301,101 @@ a:link {
     }
 
     // Toggle blob tags.
-    var showClass = "glyphicon-ok";
-    var hideClass = "glyphicon-remove";
+    var showClass = 'glyphicon-ok';
+    var hideClass = 'glyphicon-remove';
 
     function toggleBlobTags() {
         var icon = $('#toggleblobtags > span.glyphicon');
-        if (!icon) {
-            console.log("Fail to find icon in toggleBlobTags()");
+        if(!icon) {
+            console.log('Fail to find icon in toggleBlobTags()');
             return;
         }
         var shown = icon.hasClass(showClass);
-        if (!shown && !icon.hasClass(hideClass)) {
-            console.log("Malformed icon in toggleBlobTags()");
+        if(!shown && !icon.hasClass(hideClass)) {
+            console.log('Malformed icon in toggleBlobTags()');
             return;
         }
         icon.removeClass(shown ? showClass : hideClass);
         icon.addClass(shown ? hideClass : showClass);
-        $("div.lyblobtag").each(function() {
+        $('div.lyblobtag').each(function() {
             shown ? $(this).hide() : $(this).show();
         });
     }
 
+    // Search box: filter blobs and chapter titles.
+    function filter(snippet, blobcounts) {
+        snippet = snippet.trim();
+        if(snippet.length === 0) {  // show all
+            $('h1.lybodychapter').show();
+            $('div.lyblob').show();
+            return;
+        }
+        var pat = new RegExp(snippet);
+        var hidden = [];
+        for(var i = 0; i < blobcounts.length; i++) hidden[i] = 0;
+        $('div.lytext').each(function() {
+            var text = $('p', this).text();
+            var blob = $(this).parent();
+            if(pat.test(text)) {
+                blob.show();
+            } else {
+                blob.hide();
+                var part = parseInt(blob.prev().attr('id').split('.')[0]);
+                hidden[part - 1]++;
+            }
+        });
+        for(var i = 0; i < hidden.length; i++) {
+            var chapter = $(document.getElementById(i + 1 + '')).next();
+            hidden[i] === blobcounts[i] ? chapter.hide() : chapter.show();
+        } // Anchors (such as <a id="1.1"></a>) are omitted.
+
+        randblobsFilteredDirty = true;  // side effect: recalculate random jump
+    }
+
+    function filterText() {
+        var blobcounts = [16, 24, 26, 26, 28, 30, 38, 21, 31, 27, 26, 24, 30, 44, 42, 14, 26, 11, 25, 3];
+        filter($(this).val(), blobcounts);
+    }
+
     // onload.
     $(function() {
-        // Random jump.
-        $("#navrandomjump").click(randomJump);
-
         // Outline menu.
         populateOutlineMenu();
 
+        // Search box.
+        var search = $('#navsearchbox');
+        search.on('input paste propertychange', filterText);
+        $(document).keydown(function(event) {
+            switch(event.which) {
+            case 83:  // s
+                if(!search.is(':focus')) {
+                    search.focus();
+                    event.preventDefault();
+                }
+                break;
+            case 27:  // Esc
+                if(search.is(':focus') && search.val() !== '') {
+                    search.val('');
+                    search.trigger('input');
+                }
+                break;
+            }
+        });
+
+        // Random jump button.
+        $('#navrandomjump').click(randomJump);
+
         // Settings menu.
-        $("#toggleblobtags").click(toggleBlobTags);
+        $('#toggleblobtags').click(toggleBlobTags);
     });
-})();
-</script>
+})();</script>
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top lynavbar" role="navigation"><div class="container-fluid">
-<div class="navbar-header pull-left"><ul class="nav pull-left"><li class="dropdown pull-left" title="目录">
+<div class="pull-left"><ul class="nav pull-left"><li class="dropdown pull-left" title="目录">
 <a id="navoutline" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-list-alt"></span></a><ul id="outlinemenu" class="dropdown-menu lyscrollable-menu"></ul>
 </li></ul></div>
-<div class="navbar-header pull-right"><ul class="nav pull-left">
+<div class="pull-right"><ul class="nav pull-left">
 <li class="dropdown pull-left" title="任选一章"><a id="navrandomjump" class="lynavbar-anchor"><span class="glyphicon glyphicon-random"></span></a></li>
 <li class="dropdown pull-right" title="设置">
 <a id="navsettings" href="#" data-toggle="dropdown" class="dropdown-toggle lynavbar-anchor"><span class="glyphicon glyphicon-menu-hamburger"></span></a><ul class="dropdown-menu lyscrollable-menu">
@@ -334,6 +408,7 @@ a:link {
 </ul>
 </li>
 </ul></div>
+<form class="pull-right lynavbar-searchbox" role="search"><input type="text" id="navsearchbox" class="form-control" title="搜索（支持正则表达式）"></form>
 </div></div>
 <div class="container">
 <div id="print-reminder">
@@ -2290,7 +2365,7 @@ a:link {
 </div>
 <a id="15.27"></a><div class="lyblob">
 <div class="lyblobtag"><a href="aboly#15.27">15.27</a></div>
-<div class="lytext"><p>子曰：“巧言乱德，小不忍则乱大谋。”</p></div>
+<div class="lytext"><p>子曰：“巧言乱德。小不忍则乱大谋。”</p></div>
 </div>
 <a id="15.28"></a><div class="lyblob">
 <div class="lyblobtag"><a href="aboly#15.28">15.28</a></div>

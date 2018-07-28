@@ -365,6 +365,7 @@ a:link {
         // Search box.
         var search = $('#navsearchbox');
         search.on('input paste propertychange', filterText);
+        if(search.val() !== '') search.trigger('input');
         $(document).keydown(function(event) {
             switch(event.which) {
             case 83:  // s

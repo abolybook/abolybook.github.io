@@ -17,7 +17,7 @@ permalink: /ideas
 <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-        this.page.url = "http://www.abolybook.org/ideas";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.url = "https://www.abolybook.org/ideas";  // Replace PAGE_URL with your page's canonical URL variable
         this.page.identifier = "abolybook_ideas"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() {  // DON'T EDIT BELOW THIS LINE

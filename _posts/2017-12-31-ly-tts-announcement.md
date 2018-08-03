@@ -22,7 +22,7 @@ permalink: /ly-tts-announcement
 
 《论语》有声版？难道还不够多吗？
 
-同样的问题，它的父项目[《一瓶论语》](https://github.com/abolybook/aboly)在[“前言”](http://www.abolybook.org/aboly#preface)和[“使用说明”](http://www.abolybook.org/aboly#usage)里作了回应。有声版呢？还是用软件读？开玩笑吧？
+同样的问题，它的父项目[《一瓶论语》](https://github.com/abolybook/aboly)在[“前言”](https://www.abolybook.org/aboly#preface)和[“使用说明”](https://www.abolybook.org/aboly#usage)里作了回应。有声版呢？还是用软件读？开玩笑吧？
 
 真人有声版《论语》的确不少，有些还提供免费下载。与它们相比，这个[TTS有声版](https://github.com/abolybook/ly-tts)的主要优点，一是**中立**，二是**扎实**，三是**自动化**。至于开源项目的天然优势，比如容易及时更新，已经在《一瓶论语》里说得很详细。
 
@@ -75,7 +75,7 @@ permalink: /ly-tts-announcement
 
 出于对目录的偏爱，我还制作了详细的播放列表（cue）、歌词（lrc）、字幕（srt），放在本项目附带的subtitles.zip里。它们都是从ly.txt和sox处理后的多个wav文件自动生成的，没什么稀奇之处，这里只展示一下使用效果。
 
-Windows上，我喜欢用[foobar2000](http://www.foobar2000.org/)播放音频。可以用它打开播放列表ly-tts.cue，并在旁边同步滚动歌词ly-tts.lrc（需要[Lyric Show Panel 3](http://www.foobar2000.org/components/view/foo_uie_lyrics3)插件）：
+Windows上，我喜欢用[foobar2000](https://www.foobar2000.org/)播放音频。可以用它打开播放列表ly-tts.cue，并在旁边同步滚动歌词ly-tts.lrc（需要[Lyric Show Panel 3](https://www.foobar2000.org/components/view/foo_uie_lyrics3)插件）：
 
 {: .center}
 ![foobar2000](/img/ly-tts-announcement/windows_foobar2000.png)

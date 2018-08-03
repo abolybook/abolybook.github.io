@@ -8,7 +8,7 @@ permalink: /web-edition
 
 Web版真是久等了！《一瓶论语》的源代码是LaTeX，直接生成的是[PDF](https://github.com/abolybook/aboly/releases)电子书。Web版是从LaTeX自动转换来的，除了载体不同的必要处理以外，它和PDF版的内容基本一致，只是更新得频繁一点。
 
-点击[主页](http://www.abolybook.org)的两张封面图片，就分别进入《一瓶论语》和《论语》白文版：
+点击[主页](https://www.abolybook.org)的两张封面图片，就分别进入《一瓶论语》和《论语》白文版：
 
 <script>
 /*! Image Map Resizer (imageMapResizer.min.js ) - v0.6.2 - 2016-06-16
@@ -28,7 +28,7 @@ window.onload = function() {
 <a href="/ly" title="《论语》白文版"><img src="/img/lycover.png" alt="《论语》白文版" width="48%" style="display: block; float: right"/></a>
 </div>
 
-（如果你是Windows XP用户，建议安装[Firefox浏览器](http://www.firefox.com.cn/)，用它看得更清爽。）
+（如果你是Windows XP用户，建议安装[Firefox浏览器](https://www.firefox.com.cn/)，用它看得更清爽。）
 
 [2016-7-8更新] 点击《一瓶论语》封面思维导图的节点，可以跳转到对应的主题索引。
 
@@ -77,7 +77,7 @@ window.onload = function() {
 <div id="disqus_thread"></div>
 <script>
 var disqus_config = function () {
-    this.page.url = "http://www.abolybook.org/web-edition";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.url = "https://www.abolybook.org/web-edition";  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = "abolybook_web_edition"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 (function() {  // DON'T EDIT BELOW THIS LINE

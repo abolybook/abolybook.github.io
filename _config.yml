@@ -5,7 +5,7 @@ email: abolybook@gmail.com
 description: >
   开源《论语》读本，传统内涵，现代价值
 
-url: "http://abolybook.org"
+url: "https://abolybook.org"
 baseurl: "" # the subpath of your site, e.g. /blog
 
 github_username: abolybook
